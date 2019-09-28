@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Ju Zhen&#39;s Blog </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+      <link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/index.xml%20http://juzhencs.github.io/index.xml%7d" rel="alternate" type="application/rss+xml" title="Ju Zhen&#39;s Blog" />
+      <link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/index.xml%20http://juzhencs.github.io/index.xml%7d" rel="feed" type="application/rss+xml" title="Ju Zhen&#39;s Blog" />
+    
+
+    <meta property="og:title" content="Ju Zhen&#39;s Blog" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://juzhencs.github.io/" />
+
+<meta property="og:updated_time" content="2018-07-31T15:25:04+08:00" />
+<meta itemprop="name" content="Ju Zhen&#39;s Blog">
+<meta itemprop="description" content="">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ju Zhen&#39;s Blog"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://juzhencs.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Ju Zhen&#39;s Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Ju Zhen&#39;s Blog
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+    
+  </article>
+  
+  
+  
+  
+  
+  
+  
+    
+    
+
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
+       
+          <h1 class="flex-none">
+            Recent Posts
+          </h1>
+        
+
+      
+
+      <section class="w-100 mw8">
+        
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/2018-07-31/" class="color-inherit dim link">
+            最长回文子串(Manacher)算法的朴实理解
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。
+然而大神们的博客都写得太学术了，欺负我智商低。像大唐白居易一样，写的诗老妪能解多好。(典故出自一些笔记小说，实际信不得的)
+作为一个笨人，整理一个自己的朴实理解的版本，希望对大家有帮助。
+预处理 假设有串S = &ldquo;12321&rdquo;，求他的最长回文子串。
+首先在串的中间(包括首尾)加特殊字符，只要是串里本来没有的字符就行。于是
+S = &ldquo;#1#2#3#2#1#&rdquo;
+子串长度数组P 建立一个数组P，P和串S长度一样。P[i]的值就是以S[i]为中心的最长子串的半径。
+举个栗子：
+S = &ldquo;# 1 # 2 # 3 # 2 # 1 #&rdquo;
+P = [0 1 0 1 0 5 0 1 0 1 0]
+显然，最大的P[i]对应的S[i]的最大回文子串，就是要求的S的最大回文子串。
+求解数组P 首先非常朴实的求解，也就是遍历S[i]的左右，看是否相等，得到以下结果。
+&gt; S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;
+        </div>
+          <a href="/posts/2018-07-31/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/2018-07-04/" class="color-inherit dim link">
+            软件开发的一些建议
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          软件开发的一些建议 最近在机缘巧合下看到了几个关于软件开发的观点. 虽然都是别人的观点,但是我很认同,记录下来,方便以后查看.
+新人代码的极限 新人开发一个项目,那么这个项目大小的极限大概在1500行代码左右.
+这是因为在1500行代码之前,不需要什么设计模式,模块化编程,面向对象等等. 不论代码有多烂,1500行内的代码复杂度总不会太高.硬凭记忆和智商能理解的了.
+突破了1500极限需要模块化,面向对象等等方法.下一个极限会在2w行左右到来. 突破2w行极限,需要面向接口编程,设计模式等方法. 再下一个极限在20w左右,不过我不知道是不是真的.
+总之写大项目的核心就是:&ldquo;让代码的复杂度,随行数线性而不是指数增加.&rdquo;
+写出可维护代码的理论 很多科班出身的人,算法很好,然而代码很烂,比如我. 写出可维护的代码基本论文有三个:
+* 坚持简单原则
+* 可维护需要在项目一开始就考虑
+* 只遵循一套原则(规范)
+理论很简单,结合实际理解一下的话,就是:
+代码单元越小越好,不超过15行最好.方便复用.
+代码单元越简单越好,最好分支不超过4个.方便修改测试.
+不写重复代码,即6行或以上相同的代码.方便源码定位.
+保持接口简单,参数不要超过4个.简单上下文易重用和理解.
+分离模块间的关注点,类不要太大.体积小耦合就小.
+用消息共享内存,消息传共享内存的指针.避免锁.
+开发和测试尽量自动化.省钱省时间.
+坚持不信任原则 从输入到输出,处处设防,可以提高代码的健壮性.
+输入是不是空,长度是否符合,内容是否安全等
+服务本身不可信,要监控请求量,成功量,失败量,关键节点可用等.
+依赖系统不可信,关键路径要备份.派票系统数据库要备份.
+请求不可信,要做ip鉴权,白名单,限制最大请求量等.
+机器不可信,宕机时刻会发生,要有容灾和心跳检测.
+网络不可信,这个大家都知道.
+人不可信,防止人乱操作.要做好日志,备份,回滚.
+        </div>
+          <a href="/posts/2018-07-04/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/2018-04-15/" class="color-inherit dim link">
+            Deamon Sync使用教程-同步相片和文件到本地
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Deamon Sync使用教程-同步相片和文件到本地 Daemon Sync介绍 Daemon Sync能够将手机中的相片或者其他应用同步到本地服务器上.它跨平台的,服务端可以安装在linux macos windows上,客户端可以安装在安卓和iso上. Daemon Sync由Daemon Tools团队开发,不过并不收费.据他们官网上的介绍是这是一款情怀软件,所以大家可以免费使用. 个人觉得不排除未来新版本收费的可能,不过现在的版本许可证是无限期的,而且也很好用,未来收费的话就不升级呗.
+百度一下就能找到官网下载了,就不放连接了. 因为是情怀软件,所以不像商业软件那样有漂亮的文档. 我用的是linux,而官网并没有linux安装教程,折腾出来之后做个linux下的安装记录,方便和我一样的兄dei们少走弯路吧. (不过windows和mac应该是有的吧.)
+本文没有windows和mac服务端的安装介绍,不过你可以参考linux的安装方式.
+Daemon Sync在linux下服务端安装过程 我的安装环境是ubuntu16.04的docker镜像,虽然我是把它跑在docker里的,但是和用原生用ubuntu应该也是一样的.
+Daemon Sync不支持ipv6.(ipv6基本都是公网嘛,不安全)
+Daemon Sync当前版本客户端只能上传,不能删除服务端的数据.
+* 在官网下载linux安装包
+* 安装这个包
+sudo dpkg -i daemonsync*.deb //dpkg -i安装软件   运行deamonsync
+/etc/init.d/daemonsync start //start运行stop停止status查看状态  浏览器打开127.0.0.1:8084,进入配置界面,配置一下开始使用吧.
+  Daemon Sync的客户端使用  下载Daemon Sync软件(安卓在google play,ios在app store)
+ 保证和服务器在同一个局域网,注意要ipv4的,ipv6不支持.
+ 开始使用吧.
+  Trouble Shoot  运行sudo dpkg -i daemonsync*.deb遇到:could not determine current runlevel提示:
+suod export RUNLEVEL=1 //设置runlevel变量,解决提示:could not determine current runlevel的问题 sudo -E dpkg -i daemonsync*.
+        </div>
+          <a href="/posts/2018-04-15/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/2018-01-26/" class="link black dim">
+              ps2avrGB键盘刷QMK固件
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/2018-02-01/" class="link black dim">
+              如何写一篇科学论文
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/2018-01-19/" class="link black dim">
+              给go get加进度条
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
+        
+        </section>
+      
+
+      </div>
+  
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://juzhencs.github.io/" >
+    &copy; 2019 Ju Zhen&#39;s Blog
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

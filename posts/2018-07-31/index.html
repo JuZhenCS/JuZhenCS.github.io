@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Ju Zhen&#39;s Blog  | 最长回文子串(Manacher)算法的朴实理解</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="最长回文子串(Manacher)算法的朴实理解" />
+<meta property="og:description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。
+然而大神们的博客都写得太学术了，欺负我智商低。像大唐白居易一样，写的诗老妪能解多好。(典故出自一些笔记小说，实际信不得的)
+作为一个笨人，整理一个自己的朴实理解的版本，希望对大家有帮助。
+预处理 假设有串S = &ldquo;12321&rdquo;，求他的最长回文子串。
+首先在串的中间(包括首尾)加特殊字符，只要是串里本来没有的字符就行。于是
+S = &ldquo;#1#2#3#2#1#&rdquo;
+子串长度数组P 建立一个数组P，P和串S长度一样。P[i]的值就是以S[i]为中心的最长子串的半径。
+举个栗子：
+S = &ldquo;# 1 # 2 # 3 # 2 # 1 #&rdquo;
+P = [0 1 0 1 0 5 0 1 0 1 0]
+显然，最大的P[i]对应的S[i]的最大回文子串，就是要求的S的最大回文子串。
+求解数组P 首先非常朴实的求解，也就是遍历S[i]的左右，看是否相等，得到以下结果。
+&gt; S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://juzhencs.github.io/posts/2018-07-31/" />
+<meta property="article:published_time" content="2018-07-31T15:25:04+08:00" />
+<meta property="article:modified_time" content="2018-07-31T15:25:04+08:00" />
+<meta itemprop="name" content="最长回文子串(Manacher)算法的朴实理解">
+<meta itemprop="description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。
+然而大神们的博客都写得太学术了，欺负我智商低。像大唐白居易一样，写的诗老妪能解多好。(典故出自一些笔记小说，实际信不得的)
+作为一个笨人，整理一个自己的朴实理解的版本，希望对大家有帮助。
+预处理 假设有串S = &ldquo;12321&rdquo;，求他的最长回文子串。
+首先在串的中间(包括首尾)加特殊字符，只要是串里本来没有的字符就行。于是
+S = &ldquo;#1#2#3#2#1#&rdquo;
+子串长度数组P 建立一个数组P，P和串S长度一样。P[i]的值就是以S[i]为中心的最长子串的半径。
+举个栗子：
+S = &ldquo;# 1 # 2 # 3 # 2 # 1 #&rdquo;
+P = [0 1 0 1 0 5 0 1 0 1 0]
+显然，最大的P[i]对应的S[i]的最大回文子串，就是要求的S的最大回文子串。
+求解数组P 首先非常朴实的求解，也就是遍历S[i]的左右，看是否相等，得到以下结果。
+&gt; S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;">
+
+
+<meta itemprop="datePublished" content="2018-07-31T15:25:04&#43;08:00" />
+<meta itemprop="dateModified" content="2018-07-31T15:25:04&#43;08:00" />
+<meta itemprop="wordCount" content="310">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="最长回文子串(Manacher)算法的朴实理解"/>
+<meta name="twitter:description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。
+然而大神们的博客都写得太学术了，欺负我智商低。像大唐白居易一样，写的诗老妪能解多好。(典故出自一些笔记小说，实际信不得的)
+作为一个笨人，整理一个自己的朴实理解的版本，希望对大家有帮助。
+预处理 假设有串S = &ldquo;12321&rdquo;，求他的最长回文子串。
+首先在串的中间(包括首尾)加特殊字符，只要是串里本来没有的字符就行。于是
+S = &ldquo;#1#2#3#2#1#&rdquo;
+子串长度数组P 建立一个数组P，P和串S长度一样。P[i]的值就是以S[i]为中心的最长子串的半径。
+举个栗子：
+S = &ldquo;# 1 # 2 # 3 # 2 # 1 #&rdquo;
+P = [0 1 0 1 0 5 0 1 0 1 0]
+显然，最大的P[i]对应的S[i]的最大回文子串，就是要求的S的最大回文子串。
+求解数组P 首先非常朴实的求解，也就是遍历S[i]的左右，看是否相等，得到以下结果。
+&gt; S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://juzhencs.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Ju Zhen&#39;s Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">最长回文子串(Manacher)算法的朴实理解</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2018-07-31T15:25:04&#43;08:00">July 31, 2018</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h3 id="最长回文子串-manacher-算法朴实理解">最长回文子串(Manacher)算法朴实理解</h3>
+
+<p>今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。<br />
+然而大神们的博客都写得太学术了，欺负我智商低。像大唐白居易一样，写的诗老妪能解多好。(典故出自一些笔记小说，实际信不得的)<br />
+作为一个笨人，整理一个自己的朴实理解的版本，希望对大家有帮助。</p>
+
+<h4 id="预处理">预处理</h4>
+
+<p>假设有串S = &ldquo;12321&rdquo;，求他的最长回文子串。<br />
+首先在串的中间(包括首尾)加特殊字符，只要是串里本来没有的字符就行。于是<br />
+S = &ldquo;#1#2#3#2#1#&rdquo;</p>
+
+<h4 id="子串长度数组p">子串长度数组P</h4>
+
+<p>建立一个数组P，P和串S长度一样。P[i]的值就是以S[i]为中心的最长子串的半径。<br />
+举个栗子：<br />
+S = &ldquo;# 1 # 2 # 3 # 2 # 1 #&rdquo;<br />
+P = [0 1 0 1 0 5 0 1 0 1 0]<br />
+显然，最大的P[i]对应的S[i]的最大回文子串，就是要求的S的最大回文子串。</p>
+
+<h4 id="求解数组p">求解数组P</h4>
+
+<p>首先非常朴实的求解，也就是遍历S[i]的左右，看是否相等，得到以下结果。<br />
+&gt; S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
+&gt; P = [0 1 0 1 0 1 0 1 0 9 &hellip;]</p>
+
+<p>算到这就可以偷懒了。<br />
+我们已经知道了以5为中心，左右9的范围，是一个回文子串，我们叫这个范围为已知范围。<br />
+考虑一下5右边的#，我们叫它&rdquo;小右&rdquo;，它在已知范围，最长回文子串长度未知。<br />
+考虑一下5左边的#，我们叫它&rdquo;小左&rdquo;，它在已知范围，最长回文子串长度已知。<br />
+&ldquo;小右&rdquo;和&rdquo;小左&rdquo;是对称的，它们的最长回文子串长度自然也是相同的。<br />
+所以 <strong>&ldquo;小右&rdquo;的最长回文子串长度不用算。</strong> 照抄&rdquo;小左&rdquo;的就行。<br />
+继续偷懒，得到以下结果。<br />
+&gt; S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
+&gt; P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 &hellip;]</p>
+
+<p>偷懒这里要停一下了，即将计算1的最长回文子串长度。<br />
+如果继续偷懒，1还在已知范围，但1的最长回文子串边界和已知范围的边界有重合了。<br />
+在这种情况下就要朴实的计算1的最长回文子串。<br />
+&gt; S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
+&gt; P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 16 &hellip;]</p>
+
+<p>现在已知范围更新为以1为中心的，左右16的范围了。然后又可以愉快的偷懒了。<br />
+重复这种朴实计算，然后偷懒，不能偷懒就朴实计算，然后再偷懒的过程，得到最终结果。<br />
+&gt; S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
+&gt; P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0]</p>
+
+<h4 id="总结算法">总结算法</h4>
+
+<p>Manacher算法的核心就是计算子串长度数组P。亮点是利用已知信息在计算过程中偷懒。<br />
+朴实的理解过程如下：<br />
+*从0开始计算P[i]，并设定已知范围。<br />
+*如果以P[i]为中心，P[i]在已知范围内的对应点的最长子串半径为半径。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "juzhencs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      <div id="commento"></div>
+<script defer src="https://cdn.commento.io/js/commento.js"></script>
+
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://juzhencs.github.io/" >
+    &copy; 2019 Ju Zhen&#39;s Blog
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Ju Zhen&#39;s Blog  | Deamon Sync使用教程-同步相片和文件到本地</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Deamon Sync使用教程-同步相片和文件到本地" />
+<meta property="og:description" content="Deamon Sync使用教程-同步相片和文件到本地 Daemon Sync介绍 Daemon Sync能够将手机中的相片或者其他应用同步到本地服务器上.它跨平台的,服务端可以安装在linux macos windows上,客户端可以安装在安卓和iso上. Daemon Sync由Daemon Tools团队开发,不过并不收费.据他们官网上的介绍是这是一款情怀软件,所以大家可以免费使用. 个人觉得不排除未来新版本收费的可能,不过现在的版本许可证是无限期的,而且也很好用,未来收费的话就不升级呗.
+百度一下就能找到官网下载了,就不放连接了. 因为是情怀软件,所以不像商业软件那样有漂亮的文档. 我用的是linux,而官网并没有linux安装教程,折腾出来之后做个linux下的安装记录,方便和我一样的兄dei们少走弯路吧. (不过windows和mac应该是有的吧.)
+本文没有windows和mac服务端的安装介绍,不过你可以参考linux的安装方式.
+Daemon Sync在linux下服务端安装过程 我的安装环境是ubuntu16.04的docker镜像,虽然我是把它跑在docker里的,但是和用原生用ubuntu应该也是一样的.
+Daemon Sync不支持ipv6.(ipv6基本都是公网嘛,不安全)
+Daemon Sync当前版本客户端只能上传,不能删除服务端的数据.
+* 在官网下载linux安装包
+* 安装这个包
+sudo dpkg -i daemonsync*.deb //dpkg -i安装软件   运行deamonsync
+/etc/init.d/daemonsync start //start运行stop停止status查看状态  浏览器打开127.0.0.1:8084,进入配置界面,配置一下开始使用吧.
+  Daemon Sync的客户端使用  下载Daemon Sync软件(安卓在google play,ios在app store)
+ 保证和服务器在同一个局域网,注意要ipv4的,ipv6不支持.
+ 开始使用吧.
+  Trouble Shoot  运行sudo dpkg -i daemonsync*.deb遇到:could not determine current runlevel提示:
+suod export RUNLEVEL=1 //设置runlevel变量,解决提示:could not determine current runlevel的问题 sudo -E dpkg -i daemonsync*." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://juzhencs.github.io/posts/2018-04-15/" />
+<meta property="article:published_time" content="2018-04-15T15:25:04+08:00" />
+<meta property="article:modified_time" content="2018-04-15T15:25:04+08:00" />
+<meta itemprop="name" content="Deamon Sync使用教程-同步相片和文件到本地">
+<meta itemprop="description" content="Deamon Sync使用教程-同步相片和文件到本地 Daemon Sync介绍 Daemon Sync能够将手机中的相片或者其他应用同步到本地服务器上.它跨平台的,服务端可以安装在linux macos windows上,客户端可以安装在安卓和iso上. Daemon Sync由Daemon Tools团队开发,不过并不收费.据他们官网上的介绍是这是一款情怀软件,所以大家可以免费使用. 个人觉得不排除未来新版本收费的可能,不过现在的版本许可证是无限期的,而且也很好用,未来收费的话就不升级呗.
+百度一下就能找到官网下载了,就不放连接了. 因为是情怀软件,所以不像商业软件那样有漂亮的文档. 我用的是linux,而官网并没有linux安装教程,折腾出来之后做个linux下的安装记录,方便和我一样的兄dei们少走弯路吧. (不过windows和mac应该是有的吧.)
+本文没有windows和mac服务端的安装介绍,不过你可以参考linux的安装方式.
+Daemon Sync在linux下服务端安装过程 我的安装环境是ubuntu16.04的docker镜像,虽然我是把它跑在docker里的,但是和用原生用ubuntu应该也是一样的.
+Daemon Sync不支持ipv6.(ipv6基本都是公网嘛,不安全)
+Daemon Sync当前版本客户端只能上传,不能删除服务端的数据.
+* 在官网下载linux安装包
+* 安装这个包
+sudo dpkg -i daemonsync*.deb //dpkg -i安装软件   运行deamonsync
+/etc/init.d/daemonsync start //start运行stop停止status查看状态  浏览器打开127.0.0.1:8084,进入配置界面,配置一下开始使用吧.
+  Daemon Sync的客户端使用  下载Daemon Sync软件(安卓在google play,ios在app store)
+ 保证和服务器在同一个局域网,注意要ipv4的,ipv6不支持.
+ 开始使用吧.
+  Trouble Shoot  运行sudo dpkg -i daemonsync*.deb遇到:could not determine current runlevel提示:
+suod export RUNLEVEL=1 //设置runlevel变量,解决提示:could not determine current runlevel的问题 sudo -E dpkg -i daemonsync*.">
+
+
+<meta itemprop="datePublished" content="2018-04-15T15:25:04&#43;08:00" />
+<meta itemprop="dateModified" content="2018-04-15T15:25:04&#43;08:00" />
+<meta itemprop="wordCount" content="77">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Deamon Sync使用教程-同步相片和文件到本地"/>
+<meta name="twitter:description" content="Deamon Sync使用教程-同步相片和文件到本地 Daemon Sync介绍 Daemon Sync能够将手机中的相片或者其他应用同步到本地服务器上.它跨平台的,服务端可以安装在linux macos windows上,客户端可以安装在安卓和iso上. Daemon Sync由Daemon Tools团队开发,不过并不收费.据他们官网上的介绍是这是一款情怀软件,所以大家可以免费使用. 个人觉得不排除未来新版本收费的可能,不过现在的版本许可证是无限期的,而且也很好用,未来收费的话就不升级呗.
+百度一下就能找到官网下载了,就不放连接了. 因为是情怀软件,所以不像商业软件那样有漂亮的文档. 我用的是linux,而官网并没有linux安装教程,折腾出来之后做个linux下的安装记录,方便和我一样的兄dei们少走弯路吧. (不过windows和mac应该是有的吧.)
+本文没有windows和mac服务端的安装介绍,不过你可以参考linux的安装方式.
+Daemon Sync在linux下服务端安装过程 我的安装环境是ubuntu16.04的docker镜像,虽然我是把它跑在docker里的,但是和用原生用ubuntu应该也是一样的.
+Daemon Sync不支持ipv6.(ipv6基本都是公网嘛,不安全)
+Daemon Sync当前版本客户端只能上传,不能删除服务端的数据.
+* 在官网下载linux安装包
+* 安装这个包
+sudo dpkg -i daemonsync*.deb //dpkg -i安装软件   运行deamonsync
+/etc/init.d/daemonsync start //start运行stop停止status查看状态  浏览器打开127.0.0.1:8084,进入配置界面,配置一下开始使用吧.
+  Daemon Sync的客户端使用  下载Daemon Sync软件(安卓在google play,ios在app store)
+ 保证和服务器在同一个局域网,注意要ipv4的,ipv6不支持.
+ 开始使用吧.
+  Trouble Shoot  运行sudo dpkg -i daemonsync*.deb遇到:could not determine current runlevel提示:
+suod export RUNLEVEL=1 //设置runlevel变量,解决提示:could not determine current runlevel的问题 sudo -E dpkg -i daemonsync*."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://juzhencs.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Ju Zhen&#39;s Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Deamon Sync使用教程-同步相片和文件到本地</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2018-04-15T15:25:04&#43;08:00">April 15, 2018</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h3 id="deamon-sync使用教程-同步相片和文件到本地">Deamon Sync使用教程-同步相片和文件到本地</h3>
+
+<h4 id="daemon-sync介绍">Daemon Sync介绍</h4>
+
+<p>Daemon Sync能够将手机中的相片或者其他应用同步到本地服务器上.它跨平台的,服务端可以安装在linux macos windows上,客户端可以安装在安卓和iso上.
+Daemon Sync由Daemon Tools团队开发,不过并不收费.据他们官网上的介绍是这是一款情怀软件,所以大家可以免费使用.
+个人觉得不排除未来新版本收费的可能,不过现在的版本许可证是无限期的,而且也很好用,未来收费的话就不升级呗.<br />
+百度一下就能找到官网下载了,就不放连接了.
+因为是情怀软件,所以不像商业软件那样有漂亮的文档.
+我用的是linux,而官网并没有linux安装教程,折腾出来之后做个<strong>linux下的安装记录</strong>,方便和我一样的兄dei们少走弯路吧.
+(不过windows和mac应该是有的吧.)<br />
+<strong>本文没有windows和mac服务端的安装介绍,不过你可以参考linux的安装方式.</strong></p>
+
+<h4 id="daemon-sync在linux下服务端安装过程">Daemon Sync在linux下服务端安装过程</h4>
+
+<p>我的安装环境是ubuntu16.04的docker镜像,虽然我是把它跑在docker里的,但是和用原生用ubuntu应该也是一样的.<br />
+Daemon Sync不支持ipv6.(ipv6基本都是公网嘛,不安全)<br />
+Daemon Sync当前版本客户端只能上传,不能删除服务端的数据.<br />
+* 在官网下载linux安装包<br />
+* 安装这个包</p>
+
+<pre><code class="language-bash">sudo dpkg -i daemonsync*.deb  //dpkg -i安装软件  
+</code></pre>
+
+<ul>
+<li><p>运行deamonsync</p>
+
+<pre><code class="language-bash">/etc/init.d/daemonsync start  //start运行stop停止status查看状态
+</code></pre></li>
+
+<li><p>浏览器打开127.0.0.1:8084,进入配置界面,配置一下开始使用吧.</p></li>
+</ul>
+
+<h4 id="daemon-sync的客户端使用">Daemon Sync的客户端使用</h4>
+
+<ul>
+<li>下载Daemon Sync软件(安卓在google play,ios在app store)<br /></li>
+<li>保证和服务器在同一个局域网,注意要ipv4的,ipv6不支持.<br /></li>
+<li>开始使用吧.<br /></li>
+</ul>
+
+<h4 id="trouble-shoot">Trouble Shoot</h4>
+
+<ul>
+<li><p>运行sudo dpkg -i daemonsync*.deb遇到:could not determine current runlevel提示:</p>
+
+<pre><code class="language-bash">suod export RUNLEVEL=1  //设置runlevel变量,解决提示:could not determine current runlevel的问题  
+sudo -E dpkg -i daemonsync*.deb  //-E表示传递用户变量给root,dpkg -i安装软件  
+</code></pre></li>
+
+<li><p>浏览器打不开配置页面或者加载慢:</p>
+
+<pre><code class="language-bash">/etc/init.d/daemonsync status  //查看服务是否在运行,没运行就start起来  
+</code></pre>
+
+<p>用服务器的本机浏览器打开配置页面,不要用手机或者平板端浏览器.</p></li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "juzhencs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      <div id="commento"></div>
+<script defer src="https://cdn.commento.io/js/commento.js"></script>
+
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://juzhencs.github.io/" >
+    &copy; 2019 Ju Zhen&#39;s Blog
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
