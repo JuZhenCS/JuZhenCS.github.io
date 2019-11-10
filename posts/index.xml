@@ -6,10 +6,24 @@
     <description>Recent content in Posts on Ju Zhen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Jul 2018 15:25:04 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 26 Oct 2019 16:11:12 +0800</lastBuildDate>
     
-	<atom:link href="http://juzhencs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://juzhencs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>vEB tree算法简介</title>
+      <link>http://juzhencs.github.io/posts/2019-10-26/</link>
+      <pubDate>Sat, 26 Oct 2019 16:11:12 +0800</pubDate>
+      
+      <guid>http://juzhencs.github.io/posts/2019-10-26/</guid>
+      <description>vEB tree算法简介 vEB tree是VAN EMDE BOAS Tress的缩写，是一种 时间复杂度为O(lglgU) 的查找算法。基于比较操作的查找算法最佳时间复杂度为O(lgn)，vEB tree算法借用了一些 位操作 的技巧，将时间复杂度降低为O(lglgn)，所以在问题规模相对问题空间较大的情况下有较好的表现。它是由一个荷兰计算机学家Peter van Emde Boas领导的团队在1975年发明的。参考文献如下，如果链接过期了的话也可以根据论文名字重新搜索。
+van Emde Boas, Peter. &amp;ldquo;Preserving order in a forest in less than logarithmic time.&amp;rdquo; 16th Annual Symposium on Foundations of Computer Science (sfcs 1975). IEEE, 1975.
+另外作者在1977年改进了算法，将空间复杂度降低为线性，参考文献如下。
+van Emde Boas, Peter. &amp;ldquo;Preserving order in a forest in less than logarithmic time and linear space.&amp;rdquo; Information processing letters 6.3 (1977): 80-82.
+引子:传统的二分查找  问题:
+给定一个递增的序列x[n]，用二分查找数值a是否存在序列当中。</description>
+    </item>
     
     <item>
       <title>最长回文子串(Manacher)算法的朴实理解</title>
@@ -29,7 +43,7 @@ S = &amp;ldquo;# 1 # 2 # 3 # 2 # 1 #&amp;rdquo;
 P = [0 1 0 1 0 5 0 1 0 1 0]
 显然，最大的P[i]对应的S[i]的最大回文子串，就是要求的S的最大回文子串。
 求解数组P 首先非常朴实的求解，也就是遍历S[i]的左右，看是否相等，得到以下结果。
-&amp;gt; S = &amp;ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&amp;rdquo;</description>
+ S = &amp;ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&amp;rdquo;</description>
     </item>
     
     <item>
@@ -44,10 +58,10 @@ P = [0 1 0 1 0 5 0 1 0 1 0]
 突破了1500极限需要模块化,面向对象等等方法.下一个极限会在2w行左右到来. 突破2w行极限,需要面向接口编程,设计模式等方法. 再下一个极限在20w左右,不过我不知道是不是真的.
 总之写大项目的核心就是:&amp;ldquo;让代码的复杂度,随行数线性而不是指数增加.&amp;rdquo;
 写出可维护代码的理论 很多科班出身的人,算法很好,然而代码很烂,比如我. 写出可维护的代码基本论文有三个:
-* 坚持简单原则
-* 可维护需要在项目一开始就考虑
-* 只遵循一套原则(规范)
-理论很简单,结合实际理解一下的话,就是:
+ 坚持简单原则
+ 可维护需要在项目一开始就考虑
+ 只遵循一套原则(规范)
+  理论很简单,结合实际理解一下的话,就是:
 代码单元越小越好,不超过15行最好.方便复用.
 代码单元越简单越好,最好分支不超过4个.方便修改测试.
 不写重复代码,即6行或以上相同的代码.方便源码定位.
@@ -77,9 +91,9 @@ P = [0 1 0 1 0 5 0 1 0 1 0]
 Daemon Sync在linux下服务端安装过程 我的安装环境是ubuntu16.04的docker镜像,虽然我是把它跑在docker里的,但是和用原生用ubuntu应该也是一样的.
 Daemon Sync不支持ipv6.(ipv6基本都是公网嘛,不安全)
 Daemon Sync当前版本客户端只能上传,不能删除服务端的数据.
-* 在官网下载linux安装包
-* 安装这个包
-sudo dpkg -i daemonsync*.deb //dpkg -i安装软件   运行deamonsync
+ 在官网下载linux安装包
+ 安装这个包
+sudo dpkg -i daemonsync*.deb //dpkg -i安装软件  运行deamonsync
 /etc/init.d/daemonsync start //start运行stop停止status查看状态  浏览器打开127.0.0.1:8084,进入配置界面,配置一下开始使用吧.
   Daemon Sync的客户端使用  下载Daemon Sync软件(安卓在google play,ios在app store)
  保证和服务器在同一个局域网,注意要ipv4的,ipv6不支持.
@@ -111,10 +125,10 @@ qmk顶顶大名，就不用多介绍了，基于chibiOS系统，支持模拟鼠�
 但是我不会对此负责，也不保证能帮助你修复键盘
 今天是2018-01-26，如果时间过去太久这个教程可能已经失效了
 刷板子准备 在刷板子之前需要做好如下的准备：
-* 1.把github上的luizriberiro的qmk项目clone到本地，并且配置好编译环境。
-* 2.下载BootmapperClient，最新的版本最好。
-* 3.找到进入键盘刷机模式(DFU模式)的方法。
-qmk的开发环境我是在ubuntu环境下搭建的，qmk有详细教程，只要搭建好编译环境就可以，不用管烧录工具。
+ 1.把github上的luizriberiro的qmk项目clone到本地，并且配置好编译环境。
+ 2.下载BootmapperClient，最新的版本最好。
+ 3.找到进入键盘刷机模式(DFU模式)的方法。
+  qmk的开发环境我是在ubuntu环境下搭建的，qmk有详细教程，只要搭建好编译环境就可以，不用管烧录工具。
 我的bootmapperClient版本是v0.10.0
 ps2avrGB进入刷机模式通常有两种：
 韩国的键盘是断开连接线，按住左ctrl或者U或者esc，然后再连接。
@@ -125,7 +139,7 @@ ps2avrGB进入刷机模式通常有两种：
 生成刷机文件步骤 首先要修改qmk的代码以适配自己的键盘配列表。
 首先编辑config.h,适配键盘的配列。
 在#endif前添加如下内容：
-/* mouse settings*/ //定义模拟鼠标参数，单位毫秒 #define MOUSEKEY_DELAY 150 //鼠标连续移动延迟，过大笨拙，过小发飘 #define MOUSEKEY_INTERVAL 20 //鼠标刷新间隔 #define MOUSEKEY_MAX_SPEED 2 //鼠标最大速度 #define MOUSEKEY_TIME_TO_MAX 2 //鼠标到达最大速的时间 #define MOUSEKEY_WHEEL_MAX_SPEED 2 //鼠标滚轮最大速度 #define MOUSEKEY_WHEEL_TIME_TO_MAX 2 //鼠标滚轮到达最大速度的时间  再编辑ps2avrGB.h文件，适配键盘的配列。</description>
+/* mouse settings*/ //定义模拟鼠标参数，单位毫秒 #define MOUSEKEY_DELAY 150 //鼠标连续移动延迟，过大笨拙，过小发飘 #define MOUSEKEY_INTERVAL 20 //鼠标刷新间隔 #define MOUSEKEY_MAX_SPEED 2 //鼠标最大速度 #define MOUSEKEY_TIME_TO_MAX 2 //鼠标到达最大速的时间 #define MOUSEKEY_WHEEL_MAX_SPEED 2 //鼠标滚轮最大速度 #define MOUSEKEY_WHEEL_TIME_TO_MAX 2 //鼠标滚轮到达最大速度的时间  再编辑ps2avrGB.</description>
     </item>
     
     <item>
@@ -145,23 +159,20 @@ ps2avrGB进入刷机模式通常有两种：
  References 参考文献
  Appendix 附录
   如何选题 可以看一些文章，找一些问题，甚至之前工作的结果。然后进行头脑风暴，看哪里还可以完善。把内容写在一张纸上。找几个同学或者同事，对这些内容做一个评判。如果大家普遍认为这个脑洞开的好，就可以发文章。
-* 一篇文章开三个脑洞就差不多了
-* 如果是新观点，要想好名字，或者看看国内外同行怎么命名这个新观点
-* 对于新观点要至少找到三个点，来证明它是新颖的
-文章的主题分类 通常文章可以分为三类：
-* 原始创新
+ 一篇文章开三个脑洞就差不多了
+ 如果是新观点，要想好名字，或者看看国内外同行怎么命名这个新观点
+ 对于新观点要至少找到三个点，来证明它是新颖的
+  文章的主题分类 通常文章可以分为三类：
+ 原始创新
 这类创新是最不容易出现的，比如开创一个领域的相对论。是科研狗的最高目标。
-* 细节补充
+ 细节补充
 在大牛开创了领域之后，进行一些查缺补漏。比如有人提出孩子的身高和父母的遗传有关系，跟着可以发一篇文章。“我发现确实有关系，关系权重在10%到90%之间。”俗称跟班科研，是最容易水文章的方法。
-* 新来源的创新
+ 新来源的创新
 这种创新实际上是垄断创新，比如探月计划可以出一大批文章，因为数据有了新的来源。如果自己有了新的实验来源而又不能垄断的话，就要学会隐藏数据来源了。
-* 自己工作的跟进
+ 自己工作的跟进
 自己在做了一些工作之后，总有一些是还可以深入做，但是当时没时间或者精力做的。有条件之后把这些工作继续做下去，也是文章的来源。
-Title and Abstract 标题和摘要  文章的标题要能够表达文章的所有的点
-一个好的标题能够一定程度上代替整篇文章，有一种成语的效果。坏的标题比如：基于xx方法的改进方法。好的标题比如：xx方法的yy改进。
- 摘要是对标题的扩充。
-摘要是对文章的引领，通常在标题定下之后摘要就该写出来了，而不是在最后的总结。
-  Introduction 介绍 实际文章都是套路，介绍的套路就是如下，可以用一段来写。下面每个点用一句或者两句话来写明白。</description>
+  Title and Abstract 标题和摘要  文章的标题要能够表达文章的所有的点
+一个好的标题能够一定程度上代替整篇文章，有一种成语的效果。坏的标题比如：基于xx方法的改进方法。好的标题比如：xx方法的yy改进。</description>
     </item>
     
     <item>
@@ -174,8 +185,8 @@ Title and Abstract 标题和摘要  文章的标题要能够表达文章的所�
 让go get显示进度条(博客可能已经过期了)
 作为萌新，按着大神的方法也实现了这个功能，而且大神把原理说的非常清楚明白，感谢!!!
 大神思路很简单：
-* 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
-重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
+ 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
+  重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
 我的版本是：go1.9.2
 编辑/usr/local/go/src/cmd/go/internal/get/vcs.go。
 cmd.Stdout = &amp;amp;buf cmd.Stderr = &amp;amp;buf //添加cmd.Stdout = os.Stdout //添加cmd.Stderr = os.Stderr  成

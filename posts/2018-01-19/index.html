@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Ju Zhen&#39;s Blog  | 给go get加进度条</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.58.3" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        给go get加进度条 - Ju Zhen&#39;s Blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content=" 给go get加进度条 go get的时候没有回显，实验室网又慢，看着一行命令很长时间不动挺按难受的，就想着能不能加个进度条。谷歌了一下，4年前就已经有大神实现了。
+让go get显示进度条(博客可能已经过期了)
+作为萌新，按着大神的方法也实现了这个功能，而且大神把原理说的非常清楚明白，感谢!!!
+大神思路很简单：
+ 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
+  重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
+我的版本是：go1.9.2
+编辑/usr/local/go/src/cmd/go/internal/get/vcs.go。
+cmd.Stdout = &amp;amp;buf cmd.Stderr = &amp;amp;buf //添加cmd.Stdout = os.Stdout //添加cmd.Stderr = os.Stderr  成
+cmd.Stdout = &amp;amp;buf cmd.Stderr = &amp;amp;buf cmd.Stdout = os.Stdout cmd.Stderr = os.Stderr  然后跑一遍/usr/local/go/src/run.bash
+之后运行go get就有回显了
+Cloning into &#39;/root/go/src/github.com/go-redis/redis&#39;... remote: Counting objects: 4026, done. remote: Compressing objects: 100% (18/18), done. Receiving objects: 69% (2784/4026), 1.14 MiB | 8.00 KiB/s  " />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>给go get加进度条 - Ju Zhen&#39;s Blog</title>
+  
 
-    
-    
-      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
-    
-
-    
-
-    
-      
-    
-
-    
-
-    <meta property="og:title" content="给go get加进度条" />
+  <link rel="stylesheet" href="http://juzhencs.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="给go get加进度条" />
 <meta property="og:description" content=" 给go get加进度条 go get的时候没有回显，实验室网又慢，看着一行命令很长时间不动挺按难受的，就想着能不能加个进度条。谷歌了一下，4年前就已经有大神实现了。
 让go get显示进度条(博客可能已经过期了)
 作为萌新，按着大神的方法也实现了这个功能，而且大神把原理说的非常清楚明白，感谢!!!
 大神思路很简单：
-* 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
-重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
+ 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
+  重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
 我的版本是：go1.9.2
 编辑/usr/local/go/src/cmd/go/internal/get/vcs.go。
 cmd.Stdout = &amp;buf cmd.Stderr = &amp;buf //添加cmd.Stdout = os.Stdout //添加cmd.Stderr = os.Stderr  成
@@ -47,8 +63,8 @@ Cloning into &#39;/root/go/src/github.com/go-redis/redis&#39;... remote: Countin
 让go get显示进度条(博客可能已经过期了)
 作为萌新，按着大神的方法也实现了这个功能，而且大神把原理说的非常清楚明白，感谢!!!
 大神思路很简单：
-* 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
-重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
+ 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
+  重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
 我的版本是：go1.9.2
 编辑/usr/local/go/src/cmd/go/internal/get/vcs.go。
 cmd.Stdout = &amp;buf cmd.Stderr = &amp;buf //添加cmd.Stdout = os.Stdout //添加cmd.Stderr = os.Stderr  成
@@ -59,7 +75,7 @@ Cloning into &#39;/root/go/src/github.com/go-redis/redis&#39;... remote: Countin
 
 <meta itemprop="datePublished" content="2018-01-19T15:25:04&#43;08:00" />
 <meta itemprop="dateModified" content="2018-01-19T15:25:04&#43;08:00" />
-<meta itemprop="wordCount" content="65">
+<meta itemprop="wordCount" content="64">
 
 
 
@@ -70,8 +86,8 @@ Cloning into &#39;/root/go/src/github.com/go-redis/redis&#39;... remote: Countin
 让go get显示进度条(博客可能已经过期了)
 作为萌新，按着大神的方法也实现了这个功能，而且大神把原理说的非常清楚明白，感谢!!!
 大神思路很简单：
-* 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
-重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
+ 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上
+  重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。
 我的版本是：go1.9.2
 编辑/usr/local/go/src/cmd/go/internal/get/vcs.go。
 cmd.Stdout = &amp;buf cmd.Stderr = &amp;buf //添加cmd.Stdout = os.Stdout //添加cmd.Stderr = os.Stderr  成
@@ -79,72 +95,97 @@ cmd.Stdout = &amp;buf cmd.Stderr = &amp;buf cmd.Stdout = os.Stdout cmd.Stderr = 
 之后运行go get就有回显了
 Cloning into &#39;/root/go/src/github.com/go-redis/redis&#39;... remote: Counting objects: 4026, done. remote: Compressing objects: 100% (18/18), done. Receiving objects: 69% (2784/4026), 1.14 MiB | 8.00 KiB/s  "/>
 
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
   </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="http://juzhencs.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
-      Ju Zhen&#39;s Blog
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
-</nav>
-
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header"><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+        </ul>
+      </nav>
     </div>
   </header>
-
-
-
-    <main class="pb7" role="main">
-      
   
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/posts/2018-01-19/"
+    >给go get加进度条</a
+  >
+</h1>
 
-    <header class="mt4 w-100">
-      <p class="f6 b helvetica tracked">
-          
-        POSTS
-      </p>
-      <h1 class="f1 athelas mb1">给go get加进度条</h1>
-      
-      <time class="f6 mv4 dib tracked" datetime="2018-01-19T15:25:04&#43;08:00">January 19, 2018</time>
-      
-      
-    </header>
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="http://juzhencs.github.io/posts/2018-01-19/" class="article-date">
+  <time datetime="2018-01-19 15:25:04 &#43;0800 CST" itemprop="datePublished">2018-01-19</time>
+</a>
+</span>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/2018-01-19/#comments"
+            class="article-comment-link">Comments</a></span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
 
 <h3 id="给go-get加进度条">给go get加进度条</h3>
 
 <p>go get的时候没有回显，实验室网又慢，看着一行命令很长时间不动挺按难受的，就想着能不能加个进度条。谷歌了一下，4年前就已经有大神实现了。<br />
 <a href="http://life.leanote.com/post/%E8%AE%A9-go-get-%E6%98%BE%E7%A4%BA%E8%BF%9B%E5%BA%A6" title="让go get显示进度条">让go get显示进度条</a>(博客可能已经过期了)<br />
 作为萌新，按着大神的方法也实现了这个功能，而且<strong>大神把原理说的非常清楚明白，感谢!!!</strong><br />
-大神思路很简单：<br />
-* 修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上</p>
+大神思路很简单：</p>
+
+<ul>
+<li>修改cmd.Run()执行的地方, 使其将输出定位到标准输出流上<br /></li>
+</ul>
 
 <p>重新记录一下我的操作过程，详细一些，方便和我一样的萌新们。<br />
 我的版本是：go1.9.2<br />
@@ -172,70 +213,68 @@ remote: Counting objects: 4026, done.
 remote: Compressing objects: 100% (18/18), done.  
 Receiving objects:  69% (2784/4026), 1.14 MiB | 8.00 KiB/s  
 </code></pre>
-<ul class="pa0">
-  
-</ul>
-<div class="mt6">
-      
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "juzhencs" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      
-      
-      </div>
-    </section>
 
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
+    </div>
   </article>
 
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://juzhencs.github.io/" >
-    &copy; 2019 Ju Zhen&#39;s Blog
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-</div>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="next">
+                <a href="http://juzhencs.github.io/posts/2018-02-01/"
+                    title="如何写一篇科学论文"><span>Older&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+        </ul>
+        <div class="bar-right">
+        </div>
+    </div>
+</nav>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+  <div class="copyright">
+    &copy;&lt;nil&gt;  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
   </div>
 </footer>
-
-    
-
-  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://juzhencs.github.io/js/application.js"></script>
+<script type="text/javascript" src="http://juzhencs.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: 'Posts',
+                  PAGES: 'Pages',
+                  CATEGORIES: 'Categories',
+                  TAGS: 'Tags',
+                  UNTITLED: '(Untitled)',
+              },
+              ROOT_URL: 'http:\/\/juzhencs.github.io\/',
+              CONTENT_URL: 'http:\/\/juzhencs.github.io\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="http://juzhencs.github.io/js/insight.js"></script>
 
   </body>
 </html>
