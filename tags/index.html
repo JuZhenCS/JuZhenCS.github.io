@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -27,13 +27,13 @@
   <title>Ju Zhen&#39;s Blog</title>
   
 
-  <link rel="alternate" type="application/rss+xml" href="http://juzhencs.github.io/tags/index.xml" title="Ju Zhen's Blog" />
-  <link rel="stylesheet" href="http://juzhencs.github.io/css/style.css">
+  <link rel="alternate" type="application/rss+xml" href="https://juzhencs.github.io/tags/index.xml" title="Ju Zhen's Blog" />
+  <link rel="stylesheet" href="https://juzhencs.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
   <meta property="og:title" content="Tags" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://juzhencs.github.io/tags/" />
+<meta property="og:url" content="https://juzhencs.github.io/tags/" />
 
 <meta itemprop="name" content="Tags">
 <meta itemprop="description" content="">
@@ -55,10 +55,18 @@
   </head>
   <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
     <div class="slimContent">
-      <div class="navbar-header"><div class="search" id="search-form-wrap">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/juzhencs" target="_blank">
+            <img class="img-circle img-rotate" src="https://juzhencs.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">鞠震JuZhen</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">计算机</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Shenzhen, China</small>
+        </div><div class="search" id="search-form-wrap">
     <form class="search-form sidebar-form">
         <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
             <span class="input-group-btn">
                 <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
                         class="icon icon-search"></i></button>
@@ -68,7 +76,7 @@
             <div class="ins-search-mask"></div>
             <div class="ins-search-container">
                 <div class="ins-input-wrapper">
-                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
                         x-webkit-speech />
                     <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
                         aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -89,20 +97,83 @@
       </div>
       <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
         <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
         </ul>
       </nav>
     </div>
   </header>
-  
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>鞠震的博客，简单记录感兴趣的内容</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+        </ul>
+
+    </div>
+</div>
+      
+  </div>
+</aside>
+
+    
     
 <main class="main" role="main">
     <article class="article article-tags post-type-list" itemscope="">
         <header class="article-header">
             <h1 itemprop="name" class="hidden-xs">Tags</h1>
-            <p class="text-muted hidden-xs">Total 0 tags</p>
+            <p class="text-muted hidden-xs">共 0 个标签</p>
             <nav role="navigation" id="nav-main" class="okayNav">
                 <ul>
-                    <li><a href="http://juzhencs.github.io/tags">All</a></li>
+                    <li><a href="https://juzhencs.github.io/tags">All</a></li>
                 </ul>
             </nav>
         </header>
@@ -111,8 +182,14 @@
         </div>
     </article>
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/juzhencs" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://juzhencs.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
   <div class="copyright">
-    &copy;&lt;nil&gt;  -
+    &copy;2018  -
     2019
     <div class="publishby">
         Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
@@ -135,25 +212,25 @@ hljs.configure({
 })
 hljs.initHighlightingOnLoad();
 </script>
-<script type="text/javascript" src="http://juzhencs.github.io/js/application.js"></script>
-<script type="text/javascript" src="http://juzhencs.github.io/js/plugin.js"></script>
+<script type="text/javascript" src="https://juzhencs.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://juzhencs.github.io/js/plugin.js"></script>
 <script>
       (function (window) {
           var INSIGHT_CONFIG = {
               TRANSLATION: {
-                  POSTS: 'Posts',
-                  PAGES: 'Pages',
-                  CATEGORIES: 'Categories',
-                  TAGS: 'Tags',
-                  UNTITLED: '(Untitled)',
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
               },
-              ROOT_URL: 'http:\/\/juzhencs.github.io\/',
-              CONTENT_URL: 'http:\/\/juzhencs.github.io\/searchindex.json ',
+              ROOT_URL: 'https:\/\/juzhencs.github.io\/',
+              CONTENT_URL: 'https:\/\/juzhencs.github.io\/searchindex.json ',
           };
           window.INSIGHT_CONFIG = INSIGHT_CONFIG;
       })(window);
       </script>
-<script type="text/javascript" src="http://juzhencs.github.io/js/insight.js"></script>
+<script type="text/javascript" src="https://juzhencs.github.io/js/insight.js"></script>
 
   </body>
 </html>

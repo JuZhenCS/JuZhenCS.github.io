@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        ps2avrGB键盘刷QMK固件 - Ju Zhen&#39;s Blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="ps2avrGB键盘刷QMK固件 先聊点题外话，鬼知道为什么我就进了客制化的大坑。 如果是新人，请记得我的经验：客制化不省钱！客制化让键盘适应你" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>ps2avrGB键盘刷QMK固件 - Ju Zhen&#39;s Blog</title>
+  
+
+  <link rel="stylesheet" href="https://juzhencs.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="ps2avrGB键盘刷QMK固件" />
+<meta property="og:description" content="ps2avrGB键盘刷QMK固件 先聊点题外话，鬼知道为什么我就进了客制化的大坑。 如果是新人，请记得我的经验：客制化不省钱！客制化让键盘适应你" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juzhencs.github.io/2018/02/2018-01-26/" />
+<meta property="article:published_time" content="2018-02-26T15:25:04+08:00" />
+<meta property="article:modified_time" content="2018-02-26T15:25:04+08:00" />
+<meta itemprop="name" content="ps2avrGB键盘刷QMK固件">
+<meta itemprop="description" content="ps2avrGB键盘刷QMK固件 先聊点题外话，鬼知道为什么我就进了客制化的大坑。 如果是新人，请记得我的经验：客制化不省钱！客制化让键盘适应你">
+
+
+<meta itemprop="datePublished" content="2018-02-26T15:25:04&#43;08:00" />
+<meta itemprop="dateModified" content="2018-02-26T15:25:04&#43;08:00" />
+<meta itemprop="wordCount" content="2771">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ps2avrGB键盘刷QMK固件"/>
+<meta name="twitter:description" content="ps2avrGB键盘刷QMK固件 先聊点题外话，鬼知道为什么我就进了客制化的大坑。 如果是新人，请记得我的经验：客制化不省钱！客制化让键盘适应你"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/juzhencs" target="_blank">
+            <img class="img-circle img-rotate" src="https://juzhencs.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">鞠震JuZhen</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">计算机</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Shenzhen, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>鞠震的博客，简单记录感兴趣的内容</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+        </ul>
+
+    </div>
+</div>
+      
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ps2avrgb键盘刷qmk固件">ps2avrGB键盘刷QMK固件</a>
+<ul>
+<li><a href="#刷板子准备">刷板子准备</a></li>
+</ul></li>
+<li><a href="#生成刷机文件步骤">生成刷机文件步骤</a>
+<ul>
+<li><a href="#刷板子步骤">刷板子步骤</a></li>
+<li><a href="#可能会遇到的问题">可能会遇到的问题</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2018/02/2018-01-26/"
+    >ps2avrGB键盘刷QMK固件</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://juzhencs.github.io/2018/02/2018-01-26/" class="article-date">
+  <time datetime="2018-02-26 15:25:04 &#43;0800 CST" itemprop="datePublished">2018-02-26</time>
+</a>
+</span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/02/2018-01-26/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2771字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:6分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h3 id="ps2avrgb键盘刷qmk固件">ps2avrGB键盘刷QMK固件</h3>
+
+<blockquote>
+<p>先聊点题外话，鬼知道为什么我就进了客制化的大坑。<br />
+如果是新人，请记得我的经验：<strong>客制化不省钱！客制化让键盘适应你，而不是你适应键盘！</strong><br />
+ps2avrGB是韩国人开发的主控套件，国内也有很多人用这个做了定制化的开发，比如麦田外设的板子。（pcb上有mt字样）<br />
+ps2avrGB的官方刷板应用是BootmapperClient，github上luizribeiro为它做了qmk的适配。<br />
+qmk顶顶大名，就不用多介绍了，基于chibiOS系统，支持模拟鼠标，可以一键进入刷机模式。总之功能特别强大！<br />
+<strong>没错！你的键盘里跑着一个操作系统！！！还能代替鼠标！！！</strong><br />
+我买的是麦田的白色pcb的gh60板子，所以我只能以这个为例，记录下刷板子的过程。<br />
+我的板子没上灯，所以关于灯光的设置都没有，如果你看得懂qmk文档可以自己加灯光配置。<br />
+本文会默认读者已经有了一定的动手能力。毕竟你都搞客制化了，哪有纯菜鸟会玩这个？对吧。<br />
+本文会默认读者能读懂英文教程，别怕，翻译软件站在你身后！</p>
+</blockquote>
+
+<p><strong>动手前请先看下全文，如果大多看不懂，请不要操作，键盘会变砖的！！！</strong><br />
+<strong>动手前请先看下全文，如果大多看不懂，请不要操作，键盘会变砖的！！！</strong><br />
+<strong>动手前请先看下全文，如果大多看不懂，请不要操作，键盘会变砖的！！！</strong><br />
+如果真的发生的悲剧，键盘变砖，你可以在github上给qmk提issue。<br />
+<strong>但是我不会对此负责，也不保证能帮助你修复键盘</strong><br />
+<strong>今天是2018-01-26，如果时间过去太久这个教程可能已经失效了</strong></p>
+
+<h4 id="刷板子准备">刷板子准备</h4>
+
+<p>在刷板子之前需要做好如下的准备：</p>
+
+<ul>
+<li>1.把github上的<a href="https://github.com/luizribeiro/qmk_firmware" title="luizribeiro的qmk">luizriberiro的qmk</a>项目clone到本地，并且配置好编译环境。<br /></li>
+<li>2.下载BootmapperClient，最新的版本最好。<br /></li>
+<li>3.找到进入键盘刷机模式(DFU模式)的方法。<br /></li>
+</ul>
+
+<p>qmk的开发环境我是在ubuntu环境下搭建的，qmk有详细教程，只要搭建好编译环境就可以，不用管烧录工具。<br />
+我的bootmapperClient版本是v0.10.0<br />
+ps2avrGB进入刷机模式通常有两种：<br />
+韩国的键盘是断开连接线，按住左ctrl或者U或者esc，然后再连接。<br />
+一些国内客制化键盘是断开连接线，短接电路板上的两个接口，再连接。<br />
+我的pcb是要短接电路板的，在电路板侧边缘有标p1的两个接口，我用镊子短接。<br />
+一定注意<strong>不能</strong>用usb扩展口接键盘，电脑识别不出来的。<br />
+进入刷机模式成功的标志就是连接电脑之后，键盘<strong>所有</strong>按键都没反应，变砖是部分按键没反应。</p>
+
+<h3 id="生成刷机文件步骤">生成刷机文件步骤</h3>
+
+<p>首先要修改qmk的代码以适配自己的键盘配列表。<br />
+首先编辑config.h,适配键盘的配列。<br />
+在#endif前添加如下内容：</p>
+
+<pre><code class="language-c">/* mouse settings*/  //定义模拟鼠标参数，单位毫秒  
+#define MOUSEKEY_DELAY             150  //鼠标连续移动延迟，过大笨拙，过小发飘  
+#define MOUSEKEY_INTERVAL          20  //鼠标刷新间隔  
+#define MOUSEKEY_MAX_SPEED         2  //鼠标最大速度  
+#define MOUSEKEY_TIME_TO_MAX       2  //鼠标到达最大速的时间  
+#define MOUSEKEY_WHEEL_MAX_SPEED   2  //鼠标滚轮最大速度  
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 2  //鼠标滚轮到达最大速度的时间  
+</code></pre>
+
+<p>再编辑ps2avrGB.h文件，适配键盘的配列。<br />
+在#endif前添加如下内容：</p>
+
+<pre><code class="language-c">#define MY_KEYMAP( \
+  K31, K32, K33, K34, K35, K36, K37, K38, K39, K3A, K3B, K3C, K3D,      K3F, \
+  K41, K42, K43, K44, K45, K46, K47, K48, K49, K4A, K4B, K4C, K4D, K4E,      \
+  K51, K52, K53, K54, K55, K56, K57, K58, K59, K5A, K5B, K5C,      K5E,      \
+  K61,      K63, K64, K65, K66, K67, K68, K69, K6A, K6B, K6C,      K6E,      \
+  K71, K72, K73,                     K78,      K7A, K7B,      K7D, K7E       \
+){ \
+  { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \
+  { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \
+  { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \
+  { K31,   K32,   K33,   K34,   K35,   K36,   K37,   K38,   K39,   K3A,   K3B,   K3C,   K3D,   KC_NO, K3F   }, \
+  { K41,   K42,   K43,   K44,   K45,   K46,   K47,   K48,   K49,   K4A,   K4B,   K4C,   K4D,   K4E,   KC_NO }, \
+  { K51,   K52,   K53,   K54,   K55,   K56,   K57,   K58,   K59,   K5A,   K5B,   K5C,   KC_NO, K5E,   KC_NO }, \
+  { K61,   KC_NO, K63,   K64,   K65,   K66,   K67,   K68,   K69,   K6A,   K6B,   K6C,   KC_NO, K6E,   KC_NO }, \
+  { K71,   K72,   K73,   KC_NO, KC_NO, KC_NO, KC_NO, K78,   KC_NO, K7A,   K7B,   KC_NO, K7D,   K7E,   KC_NO }  \
+}
+</code></pre>
+
+<p>配置的方法其实挺简单的。格式如下：</p>
+
+<pre><code class="language-c">#define MY_KEYMAP( \
+    K11, K12, K13, \
+    K21,      K23  \
+){ \
+    { KC_11, KC_12, KC_13 }, \
+    { KC_21, KC_NO, KC_23 }  \
+}
+</code></pre>
+
+<p>上面的矩阵是我们的键盘轴排列方式，下面的矩阵是这些轴焊接在了哪里。<br />
+比如我们设置了一个2x3的键盘矩阵，在上面焊了五个轴，排列如第一个矩阵。<br />
+在第二个矩阵一一对应的，配置轴焊接的位置，没有焊轴的位置用NO占位。<br />
+以上是我的怕pcb的布局，每个人习惯不同，布局都不同，可能需要微调。<br />
+建立/root/qmk/qmk_firmware/keyboards/ps2avrGB/keymaps/mykeymap文件夹，最后的mykeymap可以任意改名。<br />
+进入新建的文件夹，建立keymap.c文件。内容如下：</p>
+
+<pre><code class="language-c">#include &quot;ps2avrGB.h&quot;
+#include &quot;action_layer.h&quot;
+#include &quot;rgblight.h&quot;
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [0] = MY_KEYMAP(
+        KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,           KC_BSPC,
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,
+        KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,
+        KC_LSFT,          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_FN0,
+        KC_FN1,  KC_RGUI, KC_LALT,                                     KC_SPC,           KC_FN2,  KC_APP,           KC_CAPS, KC_INS
+    ),
+    [1] = MY_KEYMAP(
+        KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_DEL,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_PGUP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_HOME, KC_PGDN, KC_END,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
+        KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS,                                     KC_TRNS,          KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS
+    ),
+    [2] = MY_KEYMAP(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_TRNS, KC_TRNS,          KC_TRNS,
+        KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS,                                     KC_TRNS,          KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS
+    ),
+    [3] = MY_KEYMAP(
+        RESET,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_U, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_BTN2, KC_WH_D, KC_BTN1, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R,          KC_TRNS,
+        KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS,                                     KC_TRNS,          KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS
+    ),
+};
+
+const uint16_t PROGMEM fn_actions[] = {
+  [0]  = ACTION_LAYER_MOMENTARY(1),
+  [1]  = ACTION_LAYER_MOMENTARY(2),
+  [2]  = ACTION_LAYER_MOMENTARY(3),
+};
+</code></pre>
+
+<p>这里的键位设置是和ps2avrGB.h里的设置对应的。应该很容易看懂。<br />
+默认键盘在第0层状态，按下FN0键进入第一层，按下FN1进入第二层，以此类推。<br />
+KC_TRNS表示透明，比如字母K键。按下FN1和K键，从第0层进入第2层，KC_TRNS会透明映射到下面第0层，输出还是K。<br />
+KC_MS_L就是鼠标模拟向左移动，具体的keycode可以参考<a href="https://docs.qmk.fm/keycodes.html" title="qmk的keycoede文档">qmk的keycode文档</a>。<br />
+第三层的左上角RESET键表示进入刷机(DFU)模式，有了这个键就不用每次都短接了。<br />
+最后回到qmk_firmware,执行下面的命令：</p>
+
+<pre><code class="language-bash">make ps2avrGB
+</code></pre>
+
+<p>大概会有一个这样的回显：</p>
+
+<pre><code class="language-bash">Making ps2avrGB with keymap default [OK]
+Making ps2avrGB with keymap luizribeiro [OK]
+Making ps2avrGB with keymap mykeyboard [OK]
+</code></pre>
+
+<p>成功之后会生成ps2avrGB_mykeyboard.hex文件，就是我们的目标文件了。</p>
+
+<h4 id="刷板子步骤">刷板子步骤</h4>
+
+<p>刷板子我是在windows平台上进行的，linux当然也可以，不过我没成功。<br />
+通过按键或者短接，让键盘的板子进入刷机模式，连接电脑，打开bootmapperClient。<br />
+右上角选option，左下角的utils里点firm up，弹出的窗口中选中ps2avrGB_mykeyboard.hex，刷机开始。<br />
+没问题的话会弹出一个对话框，在跑马灯显示一堆二进制地址，不到10秒对话框消失，刷机完成。<br />
+如果刷机成功，以后再刷的时候按reset键就可以进去刷机模式了，不用每次都短接。<br />
+第一次配列肯定是会有问题的，用一段时间发现不方便再改，慢慢你的键盘就会进化出最适合你的配列。</p>
+
+<h4 id="可能会遇到的问题">可能会遇到的问题</h4>
+
+<p>可能会遇到的最大的问题就是运气问题，我的板子变砖过，连上电脑不识别过。<br />
+装驱动把其他设备驱动装坏过，编译debug一天没成果过。<br />
+不过基本都是因为小问题，运气好的话是不会遇到的。<br />
+运气不好的话，恭喜你！因为专家就是把能遇到的问题都遇到了一遍的人。</p>
+
+    </div>
+  </article>
+<section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://juzhencs.github.io/2018/02/2018-02-01/" title="如何写一篇科学论文"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://juzhencs.github.io/2018/04/2018-04-15/"
+                    title="Deamon Sync使用教程-同步相片和文件到本地"><span>下一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/juzhencs" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://juzhencs.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2018  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://juzhencs.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://juzhencs.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/juzhencs.github.io\/',
+              CONTENT_URL: 'https:\/\/juzhencs.github.io\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://juzhencs.github.io/js/insight.js"></script>
+
+<script defer>
+    var disqus_config = function () {
+        this.page.url = 'https:\/\/juzhencs.github.io\/2018\/02\/2018-01-26\/';
+        this.page.identifier = 'juzhencs';
+    };
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'juzhencs' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+  </body>
+</html>

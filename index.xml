@@ -2,22 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ju Zhen&#39;s Blog</title>
-    <link>http://juzhencs.github.io/</link>
+    <link>https://juzhencs.github.io/</link>
     <description>Recent content on Ju Zhen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     <lastBuildDate>Sat, 26 Oct 2019 16:11:12 +0800</lastBuildDate>
     
-        <atom:link href="http://juzhencs.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://juzhencs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Posts</title>
-      <link>http://juzhencs.github.io/posts/</link>
+      <link>https://juzhencs.github.io/posts/</link>
       <pubDate>Sat, 26 Oct 2019 16:11:12 +0800</pubDate>
       
-      <guid>http://juzhencs.github.io/posts/</guid>
+      <guid>https://juzhencs.github.io/posts/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://juzhencs.github.io/about/</link>
+      <pubDate>Sat, 26 Oct 2019 15:55:53 +0800</pubDate>
+      
+      <guid>https://juzhencs.github.io/about/</guid>
+      <description>鞠震 计算机博士生 研究领域：仿真模拟、高性能计算、生物信息 邮箱：1312921719@qq.com</description>
     </item>
     
   </channel>

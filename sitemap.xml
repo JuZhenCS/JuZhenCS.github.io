@@ -3,56 +3,91 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://juzhencs.github.io/</loc>
+    <loc>https://juzhencs.github.io/</loc>
     <lastmod>2019-10-26T16:11:12+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/posts/</loc>
+    <loc>https://juzhencs.github.io/posts/</loc>
     <lastmod>2019-10-26T16:11:12+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/posts/2019-10-26/</loc>
+    <loc>https://juzhencs.github.io/2019/10/2019-10-26/</loc>
     <lastmod>2019-10-26T16:11:12+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/posts/2018-07-31/</loc>
+    <loc>https://juzhencs.github.io/about/</loc>
+    <lastmod>2019-10-26T15:55:53+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://juzhencs.github.io/2018/07/2018-07-31/</loc>
     <lastmod>2018-07-31T15:25:04+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/posts/2018-07-04/</loc>
+    <loc>https://juzhencs.github.io/2018/07/2018-07-04/</loc>
     <lastmod>2018-07-04T15:25:04+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/posts/2018-04-15/</loc>
+    <loc>https://juzhencs.github.io/2018/04/2018-04-15/</loc>
     <lastmod>2018-04-15T15:25:04+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/posts/2018-01-26/</loc>
+    <loc>https://juzhencs.github.io/2018/02/2018-01-26/</loc>
     <lastmod>2018-02-26T15:25:04+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/posts/2018-02-01/</loc>
+    <loc>https://juzhencs.github.io/2018/02/2018-02-01/</loc>
     <lastmod>2018-02-01T15:25:04+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/posts/2018-01-19/</loc>
+    <loc>https://juzhencs.github.io/2018/01/2018-01-19/</loc>
     <lastmod>2018-01-19T15:25:04+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/categories/</loc>
+    <loc>https://juzhencs.github.io/categories/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://juzhencs.github.io/tags/</loc>
+    <loc>https://juzhencs.github.io/series/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://juzhencs.github.io/tags/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>
