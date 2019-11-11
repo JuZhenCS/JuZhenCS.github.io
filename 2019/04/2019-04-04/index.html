@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        最长回文子串(Manacher)算法的朴实理解 - Ju Zhen&#39;s Blog
+        ntp不同步问题(windows做时钟源) - Ju Zhen&#39;s Blog
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,33 +23,33 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。 然而大神们的博" />
+  <meta name="description" content="ntp不同步问题(Windows做时钟源) 配置linux的ntp同步遇到问题(ubuntu16.04&#43;ntp): 本地机器的ntpd进程在运行" />
   <meta name="generator" content="Hugo 0.59.1 with theme pure" />
-  <title>最长回文子串(Manacher)算法的朴实理解 - Ju Zhen&#39;s Blog</title>
+  <title>ntp不同步问题(windows做时钟源) - Ju Zhen&#39;s Blog</title>
   
 
   <link rel="stylesheet" href="https://juzhencs.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
-  <meta property="og:title" content="最长回文子串(Manacher)算法的朴实理解" />
-<meta property="og:description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。 然而大神们的博" />
+  <meta property="og:title" content="ntp不同步问题(windows做时钟源)" />
+<meta property="og:description" content="ntp不同步问题(Windows做时钟源) 配置linux的ntp同步遇到问题(ubuntu16.04&#43;ntp): 本地机器的ntpd进程在运行" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://juzhencs.github.io/2018/07/2018-07-31/" />
-<meta property="article:published_time" content="2018-07-31T15:25:04+08:00" />
-<meta property="article:modified_time" content="2018-07-31T15:25:04+08:00" />
-<meta itemprop="name" content="最长回文子串(Manacher)算法的朴实理解">
-<meta itemprop="description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。 然而大神们的博">
+<meta property="og:url" content="https://juzhencs.github.io/2019/04/2019-04-04/" />
+<meta property="article:published_time" content="2019-04-04T09:36:02+08:00" />
+<meta property="article:modified_time" content="2019-04-04T09:36:02+08:00" />
+<meta itemprop="name" content="ntp不同步问题(windows做时钟源)">
+<meta itemprop="description" content="ntp不同步问题(Windows做时钟源) 配置linux的ntp同步遇到问题(ubuntu16.04&#43;ntp): 本地机器的ntpd进程在运行">
 
 
-<meta itemprop="datePublished" content="2018-07-31T15:25:04&#43;08:00" />
-<meta itemprop="dateModified" content="2018-07-31T15:25:04&#43;08:00" />
-<meta itemprop="wordCount" content="1178">
+<meta itemprop="datePublished" content="2019-04-04T09:36:02&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-04T09:36:02&#43;08:00" />
+<meta itemprop="wordCount" content="270">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="最长回文子串(Manacher)算法的朴实理解"/>
-<meta name="twitter:description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。 然而大神们的博"/>
+<meta name="twitter:title" content="ntp不同步问题(windows做时钟源)"/>
+<meta name="twitter:description" content="ntp不同步问题(Windows做时钟源) 配置linux的ntp同步遇到问题(ubuntu16.04&#43;ntp): 本地机器的ntpd进程在运行"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -185,12 +185,9 @@
 <ul>
 <li>
 <ul>
-<li><a href="#最长回文子串-manacher-算法朴实理解">最长回文子串(Manacher)算法朴实理解</a>
+<li>
 <ul>
-<li><a href="#预处理">预处理</a></li>
-<li><a href="#子串长度数组p">子串长度数组P</a></li>
-<li><a href="#求解数组p">求解数组P</a></li>
-<li><a href="#总结算法">总结算法</a></li>
+<li><a href="#ntp不同步问题-windows做时钟源">ntp不同步问题(Windows做时钟源)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -208,96 +205,39 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2018/07/2018-07-31/"
-    >最长回文子串(Manacher)算法的朴实理解</a
+    href="/2019/04/2019-04-04/"
+    >ntp不同步问题(windows做时钟源)</a
   >
 </h1>
 
       <div class="article-meta">
         <span class="article-date">
   <i class="icon icon-calendar-check"></i>
-<a href="https://juzhencs.github.io/2018/07/2018-07-31/" class="article-date">
-  <time datetime="2018-07-31 15:25:04 &#43;0800 CST" itemprop="datePublished">2018-07-31</time>
+<a href="https://juzhencs.github.io/2019/04/2019-04-04/" class="article-date">
+  <time datetime="2019-04-04 09:36:02 &#43;0800 CST" itemprop="datePublished">2019-04-04</time>
 </a>
 </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/2018-07-31/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/04/2019-04-04/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1178字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:270字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:1分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h3 id="最长回文子串-manacher-算法朴实理解">最长回文子串(Manacher)算法朴实理解</h3>
+<h4 id="ntp不同步问题-windows做时钟源">ntp不同步问题(Windows做时钟源)</h4>
 
-<p>今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。<br />
-然而大神们的博客都写得太学术了，欺负我智商低。像大唐白居易一样，写的诗老妪能解多好。(典故出自一些笔记小说，实际信不得的)<br />
-作为一个笨人，整理一个自己的朴实理解的版本，希望对大家有帮助。</p>
+<p>配置linux的ntp同步遇到问题(ubuntu16.04+ntp):<br />
+本地机器的ntpd进程在运行，但是不与服务器同步时间，试过各种方法都不能解决。<br />
+用ntpq -p命令能够显示与服务器的时间差，但是不修改本地时间，且服务器前没有星号。<br />
+问题出在时钟源上，windows搭建的时钟源偏差过大，而linux默认只接受偏差1.5秒内的时钟源，应该换linux的时钟源。<br />
+比较绥靖的解决办法是在本地机器配置文件/etc/ntp.conf开头添加一行。<br />
+接受最大偏差不超过15秒的时钟源(可能导致时钟不精确)：</p>
 
-<h4 id="预处理">预处理</h4>
-
-<p>假设有串S = &ldquo;12321&rdquo;，求他的最长回文子串。<br />
-首先在串的中间(包括首尾)加特殊字符，只要是串里本来没有的字符就行。于是<br />
-S = &ldquo;#1#2#3#2#1#&rdquo;</p>
-
-<h4 id="子串长度数组p">子串长度数组P</h4>
-
-<p>建立一个数组P，P和串S长度一样。P[i]的值就是以S[i]为中心的最长子串的半径。<br />
-举个栗子：<br />
-S = &ldquo;# 1 # 2 # 3 # 2 # 1 #&rdquo;<br />
-P = [0 1 0 1 0 5 0 1 0 1 0]<br />
-显然，最大的P[i]对应的S[i]的最大回文子串，就是要求的S的最大回文子串。</p>
-
-<h4 id="求解数组p">求解数组P</h4>
-
-<p>首先非常朴实的求解，也就是遍历S[i]的左右，看是否相等，得到以下结果。</p>
-
-<blockquote>
-<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
-P = [0 1 0 1 0 1 0 1 0 9 &hellip;]</p>
-</blockquote>
-
-<p>算到这就可以偷懒了。<br />
-我们已经知道了以5为中心，左右9的范围，是一个回文子串，我们叫这个范围为已知范围。<br />
-考虑一下5右边的#，我们叫它&rdquo;小右&rdquo;，它在已知范围，最长回文子串长度未知。<br />
-考虑一下5左边的#，我们叫它&rdquo;小左&rdquo;，它在已知范围，最长回文子串长度已知。<br />
-&ldquo;小右&rdquo;和&rdquo;小左&rdquo;是对称的，它们的最长回文子串长度自然也是相同的。<br />
-所以 <strong>&ldquo;小右&rdquo;的最长回文子串长度不用算。</strong> 照抄&rdquo;小左&rdquo;的就行。<br />
-继续偷懒，得到以下结果。</p>
-
-<blockquote>
-<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
-P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 &hellip;]</p>
-</blockquote>
-
-<p>偷懒这里要停一下了，即将计算1的最长回文子串长度。<br />
-如果继续偷懒，1还在已知范围，但1的最长回文子串边界和已知范围的边界有重合了。<br />
-在这种情况下就要朴实的计算1的最长回文子串。</p>
-
-<blockquote>
-<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
-P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 16 &hellip;]</p>
-</blockquote>
-
-<p>现在已知范围更新为以1为中心的，左右16的范围了。然后又可以愉快的偷懒了。<br />
-重复这种朴实计算，然后偷懒，不能偷懒就朴实计算，然后再偷懒的过程，得到最终结果。</p>
-
-<blockquote>
-<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
-P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0]</p>
-</blockquote>
-
-<h4 id="总结算法">总结算法</h4>
-
-<p>Manacher算法的核心就是计算子串长度数组P。亮点是利用已知信息在计算过程中偷懒。<br />
-朴实的理解过程如下：</p>
-
-<ul>
-<li>从0开始计算P[i]，并设定已知范围。<br /></li>
-<li>如果以P[i]为中心，P[i]在已知范围内的对应点的最长子串半径为半径。</li>
-</ul>
+<pre><code class="language-bash">tos maxdist 15  
+</code></pre>
 
     </div>
   </article>
@@ -311,13 +251,13 @@ P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0]</p>
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://juzhencs.github.io/2018/07/2018-07-04/" title="软件开发的一些建议"><i
+                <a href="https://juzhencs.github.io/2018/07/2018-07-31/" title="最长回文子串(Manacher)算法的朴实理解"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
             </li>
             <li class="next">
-                <a href="https://juzhencs.github.io/2019/04/2019-04-04/"
-                    title="ntp不同步问题(windows做时钟源)"><span>下一篇&nbsp;&nbsp;</span><i
+                <a href="https://juzhencs.github.io/about/"
+                    title="About"><span>下一篇&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
@@ -393,7 +333,7 @@ hljs.initHighlightingOnLoad();
 
 <script defer>
     var disqus_config = function () {
-        this.page.url = 'https:\/\/juzhencs.github.io\/2018\/07\/2018-07-31\/';
+        this.page.url = 'https:\/\/juzhencs.github.io\/2019\/04\/2019-04-04\/';
         this.page.identifier = 'juzhencs';
     };
     (function () {
