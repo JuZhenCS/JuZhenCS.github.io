@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        vEB tree算法简介 - Ju Zhen&#39;s Blog
+        ntp不同步问题(windows做时钟源) - Ju Zhen&#39;s Blog
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,33 +23,33 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="vEB tree算法简介 vEB tree是VAN EMDE BOAS Tress的缩写，是一种 时间复杂度为O(lglgU) 的查找算法。基于比较操作的查找算法最佳时间复杂度" />
+  <meta name="description" content="ntp不同步问题(Windows做时钟源) 配置linux的ntp同步遇到问题(ubuntu16.04&#43;ntp): 本地机器的ntpd进程在运行" />
   <meta name="generator" content="Hugo 0.59.1 with theme pure" />
-  <title>vEB tree算法简介 - Ju Zhen&#39;s Blog</title>
+  <title>ntp不同步问题(windows做时钟源) - Ju Zhen&#39;s Blog</title>
   
 
   <link rel="stylesheet" href="https://juzhencs.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
-  <meta property="og:title" content="vEB tree算法简介" />
-<meta property="og:description" content="vEB tree算法简介 vEB tree是VAN EMDE BOAS Tress的缩写，是一种 时间复杂度为O(lglgU) 的查找算法。基于比较操作的查找算法最佳时间复杂度" />
+  <meta property="og:title" content="ntp不同步问题(windows做时钟源)" />
+<meta property="og:description" content="ntp不同步问题(Windows做时钟源) 配置linux的ntp同步遇到问题(ubuntu16.04&#43;ntp): 本地机器的ntpd进程在运行" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://juzhencs.github.io/2019/10/2019-10-26/" />
-<meta property="article:published_time" content="2019-10-26T16:11:12+08:00" />
-<meta property="article:modified_time" content="2019-10-26T16:11:12+08:00" />
-<meta itemprop="name" content="vEB tree算法简介">
-<meta itemprop="description" content="vEB tree算法简介 vEB tree是VAN EMDE BOAS Tress的缩写，是一种 时间复杂度为O(lglgU) 的查找算法。基于比较操作的查找算法最佳时间复杂度">
+<meta property="og:url" content="https://juzhencs.github.io/2019/11/2019-04-04/" />
+<meta property="article:published_time" content="2019-11-11T09:36:02+08:00" />
+<meta property="article:modified_time" content="2019-11-11T09:36:02+08:00" />
+<meta itemprop="name" content="ntp不同步问题(windows做时钟源)">
+<meta itemprop="description" content="ntp不同步问题(Windows做时钟源) 配置linux的ntp同步遇到问题(ubuntu16.04&#43;ntp): 本地机器的ntpd进程在运行">
 
 
-<meta itemprop="datePublished" content="2019-10-26T16:11:12&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-26T16:11:12&#43;08:00" />
-<meta itemprop="wordCount" content="1586">
+<meta itemprop="datePublished" content="2019-11-11T09:36:02&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-11T09:36:02&#43;08:00" />
+<meta itemprop="wordCount" content="270">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="vEB tree算法简介"/>
-<meta name="twitter:description" content="vEB tree算法简介 vEB tree是VAN EMDE BOAS Tress的缩写，是一种 时间复杂度为O(lglgU) 的查找算法。基于比较操作的查找算法最佳时间复杂度"/>
+<meta name="twitter:title" content="ntp不同步问题(windows做时钟源)"/>
+<meta name="twitter:description" content="ntp不同步问题(Windows做时钟源) 配置linux的ntp同步遇到问题(ubuntu16.04&#43;ntp): 本地机器的ntpd进程在运行"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -185,11 +185,9 @@
 <ul>
 <li>
 <ul>
-<li><a href="#veb-tree算法简介">vEB tree算法简介</a>
+<li>
 <ul>
-<li><a href="#引子-传统的二分查找">引子:传统的二分查找</a></li>
-<li><a href="#veb-tree算法">vEB tree算法</a></li>
-<li><a href="#veb-tree的数据结构">vEB tree的数据结构</a></li>
+<li><a href="#ntp不同步问题-windows做时钟源">ntp不同步问题(Windows做时钟源)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -207,164 +205,39 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2019/10/2019-10-26/"
-    >vEB tree算法简介</a
+    href="/2019/11/2019-04-04/"
+    >ntp不同步问题(windows做时钟源)</a
   >
 </h1>
 
       <div class="article-meta">
         <span class="article-date">
   <i class="icon icon-calendar-check"></i>
-<a href="https://juzhencs.github.io/2019/10/2019-10-26/" class="article-date">
-  <time datetime="2019-10-26 16:11:12 &#43;0800 CST" itemprop="datePublished">2019-10-26</time>
+<a href="https://juzhencs.github.io/2019/11/2019-04-04/" class="article-date">
+  <time datetime="2019-11-11 09:36:02 &#43;0800 CST" itemprop="datePublished">2019-11-11</time>
 </a>
 </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/2019-10-26/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/2019-04-04/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1586字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:270字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:1分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h3 id="veb-tree算法简介">vEB tree算法简介</h3>
+<h4 id="ntp不同步问题-windows做时钟源">ntp不同步问题(Windows做时钟源)</h4>
 
-<p>vEB tree是VAN EMDE BOAS Tress的缩写，是一种 <strong>时间复杂度为O(lglgU)</strong> 的查找算法。基于比较操作的查找算法最佳时间复杂度为O(lgn)，vEB tree算法借用了一些 <strong>位操作</strong> 的技巧，将时间复杂度降低为O(lglgn)，所以在问题规模相对问题空间较大的情况下有较好的表现。它是由一个荷兰计算机学家Peter van Emde Boas领导的团队在1975年发明的。参考文献如下，如果链接过期了的话也可以根据论文名字重新搜索。<br />
-<a href="https://ieeexplore.ieee.org/abstract/document/4567861" title="Preserving order in a forest in less than logarithmic time">van Emde Boas, Peter. &ldquo;Preserving order in a forest in less than logarithmic time.&rdquo; 16th Annual Symposium on Foundations of Computer Science (sfcs 1975). IEEE, 1975.</a><br />
-另外作者在1977年改进了算法，将空间复杂度降低为线性，参考文献如下。<br />
-<a href="https://www.sciencedirect.com/science/article/pii/002001907790031X" title="Preserving order in a forest in less than logarithmic time and linear space">van Emde Boas, Peter. &ldquo;Preserving order in a forest in less than logarithmic time and linear space.&rdquo; Information processing letters 6.3 (1977): 80-82.</a></p>
+<p>配置linux的ntp同步遇到问题(ubuntu16.04+ntp):<br />
+本地机器的ntpd进程在运行，但是不与服务器同步时间，试过各种方法都不能解决。<br />
+用ntpq -p命令能够显示与服务器的时间差，但是不修改本地时间，且服务器前没有星号。<br />
+问题出在时钟源上，windows搭建的时钟源偏差过大，而linux默认只接受偏差1.5秒内的时钟源，应该换linux的时钟源。<br />
+比较绥靖的解决办法是在本地机器配置文件/etc/ntp.conf开头添加一行。<br />
+接受最大偏差不超过15秒的时钟源(可能导致时钟不精确)：</p>
 
-<h4 id="引子-传统的二分查找">引子:传统的二分查找</h4>
-
-<blockquote>
-<p>问题:<br />
-给定一个递增的序列x[n]，用二分查找数值a是否存在序列当中。<br />
-解答：<br />
-1. 取序列二分点的数值和a对比，如果二分点的数值等于a，或序列长度为1则结束。<br />
-2. 如果二分点大于a，则去掉序列后半段，否则去点序列前半段，返回1步。</p>
-</blockquote>
-
-<p>以上就是典型的二分查找，每次都把序列对半分，直到序列长度为1，最坏的情况下可能操作x次。即:<br />
-$$n(\frac{1}{2})^x=1$$<br />
-显然:<br />
-$$x=log_2^n$$<br />
-接下来思考一个问题， <strong>如果每次不是二分，而是多分</strong> 是不是可以算的更快呢？</p>
-
-<h4 id="veb-tree算法">vEB tree算法</h4>
-
-<p>数据存储在计算机当中是二进制的，计算机对数据的运算最终都是执行一些位操作。如果考虑位操作的话，其实每次是可以将数据$\sqrt n$分的。考虑数字16，可以分解为4x4，4是$2^2$二进制是0B 100，16是$2^4$二进制表示是0B 10000，刚好是0B 100乘方的结果。<br />
-假设有为0-15，共16个数，那么把这16个数全部用二进制表示如下：</p>
-
-<blockquote>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="center">十进制</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-</tr>
-
-<tr>
-<td align="center">二进制</td>
-<td align="center">00 00</td>
-<td align="center">00 01</td>
-<td align="center">00 10</td>
-<td align="center">00 11</td>
-</tr>
-
-<tr>
-<td align="center">十进制</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">7</td>
-</tr>
-
-<tr>
-<td align="center">二进制</td>
-<td align="center">01 00</td>
-<td align="center">01 01</td>
-<td align="center">01 10</td>
-<td align="center">01 11</td>
-</tr>
-
-<tr>
-<td align="center">十进制</td>
-<td align="center">8</td>
-<td align="center">9</td>
-<td align="center">10</td>
-<td align="center">11</td>
-</tr>
-
-<tr>
-<td align="center">二进制</td>
-<td align="center">10 00</td>
-<td align="center">10 01</td>
-<td align="center">10 10</td>
-<td align="center">10 11</td>
-</tr>
-
-<tr>
-<td align="center">十进制</td>
-<td align="center">12</td>
-<td align="center">13</td>
-<td align="center">14</td>
-<td align="center">15</td>
-</tr>
-
-<tr>
-<td align="center">二进制</td>
-<td align="center">11 00</td>
-<td align="center">11 01</td>
-<td align="center">11 10</td>
-<td align="center">11 11</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-
-<p>可以看到如果把二进制表示的数前后各两个比特位拆开，前两个比特位相同的数字合为一段，可以把大小为16的空间拆分成$\sqrt16$即4段。后两个比特位则可以表示数字在段当中的位置。比如数字9，拆分后，属于0B 10段，在段中的0B 01位。<br />
-另外再说明一下问题空间U和问题规模n，如上述例子，所有的数都在0-15范围内，问题空间U就是16。假设查找其中的2、4、11，三个数，问题规模n就是3。<br />
-现在vEB tree的核心思想就可以理解了，将要查找的数据按照二进制对半分(高位补零)，前半部分为段值，后半部分为段内的位置。再段内位置作为问题空间递归的查找下去，直到找到或者问题空间大小为2为止。<br />
-举个例子，问题空间为256，查找数字7。二进制7为0B 0000 0111(高位补零)，首次查找在0B 0000段，段内0B 0111位置。将段内位置作为问题空间递归查找，二次查找在0B 01段，段内0B 11位置。三次查找，在0B 1段，段内0B 1位置。查找结束。<br />
-以上就是最朴素的vEB tree思想的查找方法，每次都把问题空间开方分，直到问题空间为2，最坏的情况下可能操作x次。即:<br />
-$$U^{\frac{1}{2^x}}=2$$<br />
-显然:<br />
-$$x=log_2^{log_2^U}$$</p>
-
-<h4 id="veb-tree的数据结构">vEB tree的数据结构</h4>
-
-<p>vEB tree是递归定义的，所以实际上vEB tree的数据结构很简单，只需要理解一个节点就可以了。<br />
-一个节点就是一个$\sqrt U$叉树，每个分支就是一个段，分支的值是一个指针，指向下一级节点。<br />
-每个节点包含两个特殊变量，最大值和最小值，表示这个节点以及它之下子节点存储的值当中的最大和最小值，如果是负数，则表示这个节点是空节点。</p>
-
-<blockquote>
-<p>节点{<br />
-&ensp; 最大值<br />
-&ensp; 最小值<br />
-&ensp; 子节点1<br />
-&ensp; &hellip;<br />
-&ensp; 子节点n<br />
-}</p>
-</blockquote>
-
-<p>以上就是vEB tree的基本思想，更详细的介绍可以参考机械工业出版社的《算法导论》。<br />
-vEB tree的基本操作时间复杂度都是O(lglgU)，所以对于在问题空间当中分布密集的数据有很好的表现。不过由于关键字限制在0-U之间，所以实际应用范围有限。<br />
-另外现在看起来vEB tree的空间复杂度是O(U)，实际上通过哈希，可以降低到O(n)。</p>
+<pre><code class="language-bash">tos maxdist 15  
+</code></pre>
 
     </div>
   </article>
@@ -378,14 +251,9 @@ vEB tree的基本操作时间复杂度都是O(lglgU)，所以对于在问题空�
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://juzhencs.github.io/about/" title="About"><i
+                <a href="https://juzhencs.github.io/2019/10/2019-10-26/" title="vEB tree算法简介"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-            </li>
-            <li class="next">
-                <a href="https://juzhencs.github.io/2019/11/2019-04-04/"
-                    title="ntp不同步问题(windows做时钟源)"><span>下一篇&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">
@@ -460,7 +328,7 @@ hljs.initHighlightingOnLoad();
 
 <script defer>
     var disqus_config = function () {
-        this.page.url = 'https:\/\/juzhencs.github.io\/2019\/10\/2019-10-26\/';
+        this.page.url = 'https:\/\/juzhencs.github.io\/2019\/11\/2019-04-04\/';
         this.page.identifier = 'juzhencs';
     };
     (function () {
