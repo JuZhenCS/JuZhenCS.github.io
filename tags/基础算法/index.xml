@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>基础算法 on Ju Zhen&#39;s Blog</title>
+    <link>https://juzhencs.github.io/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 基础算法 on Ju Zhen&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 18 Nov 2019 16:54:40 +0800</lastBuildDate>
+    
+        <atom:link href="https://juzhencs.github.io/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>最长公共子串的动态规划算法</title>
+      <link>https://juzhencs.github.io/2019/11/2019-11-18/</link>
+      <pubDate>Mon, 18 Nov 2019 16:54:40 +0800</pubDate>
+      
+      <guid>https://juzhencs.github.io/2019/11/2019-11-18/</guid>
+      <description>哈哈哈</description>
+    </item>
+    
+  </channel>
+</rss>

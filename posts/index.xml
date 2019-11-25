@@ -5,10 +5,19 @@
     <link>https://juzhencs.github.io/posts/</link>
     <description>Recent content in Posts on Ju Zhen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 26 Oct 2019 16:11:12 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2019 16:54:40 +0800</lastBuildDate>
     
         <atom:link href="https://juzhencs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>最长公共子序列算法</title>
+      <link>https://juzhencs.github.io/2019/11/2019-11-18/</link>
+      <pubDate>Mon, 18 Nov 2019 16:54:40 +0800</pubDate>
+      
+      <guid>https://juzhencs.github.io/2019/11/2019-11-18/</guid>
+      <description>最长公共子序列O(lgmn)算法 问题描述： 给定两个序列 序列1： C T G A C 序列2： G T A G 求两个序列的最长公共子序列 显然，T G就是一个最长公共</description>
+    </item>
     
     <item>
       <title>vEB tree算法简介</title>
