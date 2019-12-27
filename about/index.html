@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="鞠震 计算机博士生(2019-2022) 研究领域：仿真模拟、高性能计算、生物信息 邮箱：1312921719@qq.com" />
-  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
   <title>About - Ju Zhen&#39;s Blog</title>
   
 
@@ -38,16 +38,13 @@
 <meta property="article:modified_time" content="2018-01-01T15:55:53+08:00" />
 <meta itemprop="name" content="About">
 <meta itemprop="description" content="鞠震 计算机博士生(2019-2022) 研究领域：仿真模拟、高性能计算、生物信息 邮箱：1312921719@qq.com">
-
-
 <meta itemprop="datePublished" content="2018-01-01T15:55:53&#43;08:00" />
 <meta itemprop="dateModified" content="2018-01-01T15:55:53&#43;08:00" />
 <meta itemprop="wordCount" content="59">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="About"/>
 <meta name="twitter:description" content="鞠震 计算机博士生(2019-2022) 研究领域：仿真模拟、高性能计算、生物信息 邮箱：1312921719@qq.com"/>
 
@@ -157,7 +154,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://juzhencs.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="category-list-link">生物信息</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://juzhencs.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="category-list-link">生物信息</a><span class="category-list-count">2</span></li>
         </ul>
     </div>
 </div>
@@ -167,7 +164,15 @@
         <ul class="tag-list">
             
             
+            <li class="tag-list-item"><a href="https://juzhencs.github.io/tags/vscode/" class="tag-list-link">vscode</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://juzhencs.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="tag-list-link">动态规划</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://juzhencs.github.io/tags/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/" class="tag-list-link">工具推荐</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -192,7 +197,7 @@
     <div class="slimContent">
       <nav id="toc" class="article-toc">
         <h3 class="toc-title">文章目录</h3>
-        <div class="toc-content always-active">
+        <div class="toc-content always-active"><nav id="TableOfContents"></nav>
         </div>
       </nav>
     </div>
@@ -225,9 +230,9 @@
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
-      <p>鞠震<br />
-计算机博士生(2019-2022)<br />
-研究领域：仿真模拟、高性能计算、生物信息<br />
+      <p>鞠震<br>
+计算机博士生(2019-2022)<br>
+研究领域：仿真模拟、高性能计算、生物信息<br>
 邮箱：1312921719@qq.com</p>
 
     </div>
@@ -280,6 +285,36 @@
 </footer>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="./jquery.min.js"></script>
+<script>
+var a_idx = 0;
+jQuery(document).ready(function($) {
+  $("tbody").click(function(e) {
+  var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+  var $i = $("<span/>").text(a[a_idx]);
+  a_idx = (a_idx + 1) % a.length;
+  var x = e.pageX,
+  y = e.pageY;
+  $i.css({
+    "z-index": 99999,
+    "top": y - 20,
+    "left": x,
+    "position": "absolute",
+    "font-weight": "bold",
+    "color": "#ff6651"
+  });
+  $("body").append($i);
+  $i.animate({
+      "top": y - 180,
+      "opacity": 0
+    },
+    1500,
+    function() {
+      $i.remove();
+      });
+    });
+});
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 <script>

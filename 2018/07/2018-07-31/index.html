@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。 然而大神们的博" />
-  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
   <title>最长回文子串(Manacher)算法的朴实理解 - Ju Zhen&#39;s Blog</title>
   
 
@@ -38,16 +38,13 @@
 <meta property="article:modified_time" content="2018-07-31T15:25:04+08:00" />
 <meta itemprop="name" content="最长回文子串(Manacher)算法的朴实理解">
 <meta itemprop="description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。 然而大神们的博">
-
-
 <meta itemprop="datePublished" content="2018-07-31T15:25:04&#43;08:00" />
 <meta itemprop="dateModified" content="2018-07-31T15:25:04&#43;08:00" />
-<meta itemprop="wordCount" content="1178">
+<meta itemprop="wordCount" content="1170">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="最长回文子串(Manacher)算法的朴实理解"/>
 <meta name="twitter:description" content="最长回文子串(Manacher)算法朴实理解 今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。 然而大神们的博"/>
 
@@ -157,7 +154,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://juzhencs.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="category-list-link">生物信息</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://juzhencs.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/" class="category-list-link">生物信息</a><span class="category-list-count">2</span></li>
         </ul>
     </div>
 </div>
@@ -167,7 +164,15 @@
         <ul class="tag-list">
             
             
+            <li class="tag-list-item"><a href="https://juzhencs.github.io/tags/vscode/" class="tag-list-link">vscode</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://juzhencs.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="tag-list-link">动态规划</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://juzhencs.github.io/tags/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/" class="tag-list-link">工具推荐</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -193,21 +198,13 @@
       <nav id="toc" class="article-toc">
         <h3 class="toc-title">文章目录</h3>
         <div class="toc-content always-active"><nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#最长回文子串-manacher-算法朴实理解">最长回文子串(Manacher)算法朴实理解</a>
-<ul>
-<li><a href="#预处理">预处理</a></li>
-<li><a href="#子串长度数组p">子串长度数组P</a></li>
-<li><a href="#求解数组p">求解数组P</a></li>
-<li><a href="#总结算法">总结算法</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#manacher">最长回文子串(Manacher)算法朴实理解</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
         </div>
       </nav>
@@ -236,79 +233,60 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/2018-07-31/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1178字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1170字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
-      
-
-<h3 id="最长回文子串-manacher-算法朴实理解">最长回文子串(Manacher)算法朴实理解</h3>
-
-<p>今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。<br />
-然而大神们的博客都写得太学术了，欺负我智商低。像大唐白居易一样，写的诗老妪能解多好。(典故出自一些笔记小说，实际信不得的)<br />
+      <h3 id="manacher">最长回文子串(Manacher)算法朴实理解</h3>
+<p>今天找求解最长回文子串的算法，发现居然有O(n)复杂度的解法。必须找博客拜读一下。<br>
+然而大神们的博客都写得太学术了，欺负我智商低。像大唐白居易一样，写的诗老妪能解多好。(典故出自一些笔记小说，实际信不得的)<br>
 作为一个笨人，整理一个自己的朴实理解的版本，希望对大家有帮助。</p>
-
-<h4 id="预处理">预处理</h4>
-
-<p>假设有串S = &ldquo;12321&rdquo;，求他的最长回文子串。<br />
-首先在串的中间(包括首尾)加特殊字符，只要是串里本来没有的字符就行。于是<br />
+<h4 id="heading">预处理</h4>
+<p>假设有串S = &ldquo;12321&rdquo;，求他的最长回文子串。<br>
+首先在串的中间(包括首尾)加特殊字符，只要是串里本来没有的字符就行。于是<br>
 S = &ldquo;#1#2#3#2#1#&rdquo;</p>
-
-<h4 id="子串长度数组p">子串长度数组P</h4>
-
-<p>建立一个数组P，P和串S长度一样。P[i]的值就是以S[i]为中心的最长子串的半径。<br />
-举个栗子：<br />
-S = &ldquo;# 1 # 2 # 3 # 2 # 1 #&rdquo;<br />
-P = [0 1 0 1 0 5 0 1 0 1 0]<br />
+<h4 id="p">子串长度数组P</h4>
+<p>建立一个数组P，P和串S长度一样。P[i]的值就是以S[i]为中心的最长子串的半径。<br>
+举个栗子：<br>
+S = &ldquo;# 1 # 2 # 3 # 2 # 1 #&rdquo;<br>
+P = [0 1 0 1 0 5 0 1 0 1 0]<br>
 显然，最大的P[i]对应的S[i]的最大回文子串，就是要求的S的最大回文子串。</p>
-
-<h4 id="求解数组p">求解数组P</h4>
-
+<h4 id="p-1">求解数组P</h4>
 <p>首先非常朴实的求解，也就是遍历S[i]的左右，看是否相等，得到以下结果。</p>
-
 <blockquote>
-<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
+<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br>
 P = [0 1 0 1 0 1 0 1 0 9 &hellip;]</p>
 </blockquote>
-
-<p>算到这就可以偷懒了。<br />
-我们已经知道了以5为中心，左右9的范围，是一个回文子串，我们叫这个范围为已知范围。<br />
-考虑一下5右边的#，我们叫它&rdquo;小右&rdquo;，它在已知范围，最长回文子串长度未知。<br />
-考虑一下5左边的#，我们叫它&rdquo;小左&rdquo;，它在已知范围，最长回文子串长度已知。<br />
-&ldquo;小右&rdquo;和&rdquo;小左&rdquo;是对称的，它们的最长回文子串长度自然也是相同的。<br />
-所以 <strong>&ldquo;小右&rdquo;的最长回文子串长度不用算。</strong> 照抄&rdquo;小左&rdquo;的就行。<br />
+<p>算到这就可以偷懒了。<br>
+我们已经知道了以5为中心，左右9的范围，是一个回文子串，我们叫这个范围为已知范围。<br>
+考虑一下5右边的#，我们叫它&quot;小右&rdquo;，它在已知范围，最长回文子串长度未知。<br>
+考虑一下5左边的#，我们叫它&quot;小左&rdquo;，它在已知范围，最长回文子串长度已知。<br>
+&ldquo;小右&quot;和&quot;小左&quot;是对称的，它们的最长回文子串长度自然也是相同的。<br>
+所以 <strong>&ldquo;小右&quot;的最长回文子串长度不用算。</strong> 照抄&quot;小左&quot;的就行。<br>
 继续偷懒，得到以下结果。</p>
-
 <blockquote>
-<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
+<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br>
 P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 &hellip;]</p>
 </blockquote>
-
-<p>偷懒这里要停一下了，即将计算1的最长回文子串长度。<br />
-如果继续偷懒，1还在已知范围，但1的最长回文子串边界和已知范围的边界有重合了。<br />
+<p>偷懒这里要停一下了，即将计算1的最长回文子串长度。<br>
+如果继续偷懒，1还在已知范围，但1的最长回文子串边界和已知范围的边界有重合了。<br>
 在这种情况下就要朴实的计算1的最长回文子串。</p>
-
 <blockquote>
-<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
+<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br>
 P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 16 &hellip;]</p>
 </blockquote>
-
-<p>现在已知范围更新为以1为中心的，左右16的范围了。然后又可以愉快的偷懒了。<br />
+<p>现在已知范围更新为以1为中心的，左右16的范围了。然后又可以愉快的偷懒了。<br>
 重复这种朴实计算，然后偷懒，不能偷懒就朴实计算，然后再偷懒的过程，得到最终结果。</p>
-
 <blockquote>
-<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br />
+<p>S = &ldquo;# 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 # 2 # 3 # 4 # 5 # 4 # 3 # 2 # 1 #&rdquo;<br>
 P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0]</p>
 </blockquote>
-
-<h4 id="总结算法">总结算法</h4>
-
-<p>Manacher算法的核心就是计算子串长度数组P。亮点是利用已知信息在计算过程中偷懒。<br />
+<h4 id="heading-1">总结算法</h4>
+<p>Manacher算法的核心就是计算子串长度数组P。亮点是利用已知信息在计算过程中偷懒。<br>
 朴实的理解过程如下：</p>
-
 <ul>
-<li>从0开始计算P[i]，并设定已知范围。<br /></li>
+<li>从0开始计算P[i]，并设定已知范围。</li>
 <li>如果以P[i]为中心，P[i]在已知范围内的对应点的最长子串半径为半径。</li>
 </ul>
 
@@ -367,6 +345,36 @@ P = [0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 9 0 1 0 1 0 1 0 1 0]</p>
 </footer>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="./jquery.min.js"></script>
+<script>
+var a_idx = 0;
+jQuery(document).ready(function($) {
+  $("tbody").click(function(e) {
+  var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+  var $i = $("<span/>").text(a[a_idx]);
+  a_idx = (a_idx + 1) % a.length;
+  var x = e.pageX,
+  y = e.pageY;
+  $i.css({
+    "z-index": 99999,
+    "top": y - 20,
+    "left": x,
+    "position": "absolute",
+    "font-weight": "bold",
+    "color": "#ff6651"
+  });
+  $("body").append($i);
+  $i.animate({
+      "top": y - 180,
+      "opacity": 0
+    },
+    1500,
+    function() {
+      $i.remove();
+      });
+    });
+});
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 <script>
