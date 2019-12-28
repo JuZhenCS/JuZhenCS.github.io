@@ -40,7 +40,7 @@
 <meta itemprop="description" content="vEB tree算法简介 vEB tree是VAN EMDE BOAS Tress的缩写，是一种 时间复杂度为O(lglgU) 的查找算法。基于比较操作的查找算法最佳时间复杂度">
 <meta itemprop="datePublished" content="2019-10-26T16:11:12&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-26T16:11:12&#43;08:00" />
-<meta itemprop="wordCount" content="1579">
+<meta itemprop="wordCount" content="1563">
 
 
 
@@ -233,7 +233,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/2019-10-26/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1579字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1563字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
       </div>
     </div>
@@ -265,65 +265,58 @@ $$x=log_2^n$$<br>
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th></th>
-<th></th>
+<th align="center">D</th>
+<th align="center">00</th>
+<th align="center">01</th>
+<th align="center">02</th>
+<th align="center">03</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">十进制</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-</tr>
-<tr>
-<td align="center">二进制</td>
+<td align="center">B</td>
 <td align="center">00 00</td>
 <td align="center">00 01</td>
 <td align="center">00 10</td>
 <td align="center">00 11</td>
 </tr>
 <tr>
-<td align="center">十进制</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">7</td>
+<td align="center">D</td>
+<td align="center">04</td>
+<td align="center">05</td>
+<td align="center">06</td>
+<td align="center">07</td>
 </tr>
 <tr>
-<td align="center">二进制</td>
+<td align="center">B</td>
 <td align="center">01 00</td>
 <td align="center">01 01</td>
 <td align="center">01 10</td>
 <td align="center">01 11</td>
 </tr>
 <tr>
-<td align="center">十进制</td>
-<td align="center">8</td>
-<td align="center">9</td>
+<td align="center">D</td>
+<td align="center">08</td>
+<td align="center">09</td>
 <td align="center">10</td>
 <td align="center">11</td>
 </tr>
 <tr>
-<td align="center">二进制</td>
+<td align="center">B</td>
 <td align="center">10 00</td>
 <td align="center">10 01</td>
 <td align="center">10 10</td>
 <td align="center">10 11</td>
 </tr>
 <tr>
-<td align="center">十进制</td>
+<td align="center">D</td>
 <td align="center">12</td>
 <td align="center">13</td>
 <td align="center">14</td>
 <td align="center">15</td>
 </tr>
 <tr>
-<td align="center">二进制</td>
+<td align="center">B</td>
 <td align="center">11 00</td>
 <td align="center">11 01</td>
 <td align="center">11 10</td>
@@ -336,10 +329,10 @@ $$x=log_2^n$$<br>
 另外再说明一下问题空间U和问题规模n，如上述例子，所有的数都在0-15范围内，问题空间U就是16。假设查找其中的2、4、11，三个数，问题规模n就是3。<br>
 现在vEB tree的核心思想就可以理解了，将要查找的数据按照二进制对半分(高位补零)，前半部分为段值，后半部分为段内的位置。再段内位置作为问题空间递归的查找下去，直到找到或者问题空间大小为2为止。<br>
 举个例子，问题空间为256，查找数字7。二进制7为0B 0000 0111(高位补零)，首次查找在0B 0000段，段内0B 0111位置。将段内位置作为问题空间递归查找，二次查找在0B 01段，段内0B 11位置。三次查找，在0B 1段，段内0B 1位置。查找结束。<br>
-以上就是最朴素的vEB tree思想的查找方法，每次都把问题空间开方分，直到问题空间为2，最坏的情况下可能操作x次。即:<br>
-$$U^{\frac{1}{2^x}}=2$$<br>
-显然:<br>
-$$x=log_2^{log_2^U}$$</p>
+以上就是最朴素的vEB tree思想的查找方法，每次都把问题空间开方分，直到问题空间为2，最坏的情况下可能操作x次。即:</p>
+<p>$$U^{\frac{1}{2^x}}=2$$</p>
+<p>显然:</p>
+<p>$$x=log_2^{log_2^U}$$</p>
 <h4 id="veb-tree-2">vEB tree的数据结构</h4>
 <p>vEB tree是递归定义的，所以实际上vEB tree的数据结构很简单，只需要理解一个节点就可以了。<br>
 一个节点就是一个$\sqrt U$叉树，每个分支就是一个段，分支的值是一个指针，指向下一级节点。<br>
@@ -428,7 +421,8 @@ hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://juzhencs.github.io/js/application.js"></script>
 <script type="text/javascript" src="https://juzhencs.github.io/js/plugin.js"></script>
-<script type="text/javascript" src="https://juzhencs.github.io/js/MathJax/MathJax.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 <script>
       (function (window) {
           var INSIGHT_CONFIG = {

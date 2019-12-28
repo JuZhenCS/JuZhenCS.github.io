@@ -40,7 +40,7 @@
 <meta itemprop="description" content="最长公共子序列O(lgmn)算法 问题描述： 给定两个序列 序列1： C T G A C 序列2： G T A G 求两个序列的最长公共子序列 显然，T G就是一个最长公共">
 <meta itemprop="datePublished" content="2019-11-18T16:54:40&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-18T16:54:40&#43;08:00" />
-<meta itemprop="wordCount" content="2907">
+<meta itemprop="wordCount" content="2904">
 
 
 
@@ -242,7 +242,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/2019-11-18/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2907字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2904字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:6分 </span>
       </div>
     </div>
@@ -397,39 +397,36 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
 <table>
 <thead>
 <tr>
+<th align="center">01</th>
+<th align="center">06</th>
+<th align="center">17</th>
 <th align="center"></th>
-<th></th>
-<th></th>
+<th align="center"></th>
+<th align="center"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td align="center">01</td>
-<td align="center">06</td>
-<td align="center">17</td>
-</tr>
-</tbody>
 </table>
 <p>这时延长一个元素X，如果X比17大，那么新的LIS就是(01, 06, 17, X)，如果X比17小呢？<br>
 这个实例当中X是7，考虑之前的序列当中，1和6仍是比7小，所以有了两个等长的LIS，(01, 06, 17)和(01, 06, 07)在上面的表格当中把07写在17的下方。07和17同在第三列表示他们都是各自LIS的第三位，07在17下方，表示07在原序列中的位置比17靠后。</p>
 <table>
 <thead>
 <tr>
+<th align="center">01</th>
+<th align="center">06</th>
+<th align="center">17</th>
 <th align="center"></th>
-<th></th>
-<th></th>
+<th align="center"></th>
+<th align="center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">01</td>
-<td align="center">06</td>
-<td align="center">17</td>
-</tr>
-<tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center">07</td>
-<td></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
@@ -437,27 +434,22 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
 <table>
 <thead>
 <tr>
+<th align="center">01</th>
+<th align="center">06</th>
+<th align="center">17</th>
 <th align="center"></th>
 <th align="center"></th>
 <th align="center"></th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">01</td>
-<td align="center">06</td>
-<td align="center">17</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center">07</td>
 <td align="center">09</td>
 <td align="center">14</td>
-<td></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
@@ -465,34 +457,30 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
 <table>
 <thead>
 <tr>
+<th align="center">01</th>
+<th align="center">06</th>
+<th align="center">17</th>
 <th align="center"></th>
 <th align="center"></th>
 <th align="center"></th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">01</td>
-<td align="center">06</td>
-<td align="center">17</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center">07</td>
 <td align="center">09</td>
 <td align="center">14</td>
-<td></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
 <td align="center">08</td>
-<td></td>
-<td></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
@@ -500,38 +488,30 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
 <table>
 <thead>
 <tr>
+<th align="center">01</th>
+<th align="center">06</th>
+<th align="center">17</th>
 <th align="center"></th>
 <th align="center"></th>
 <th align="center"></th>
-<th align="center"></th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">01</td>
-<td align="center">06</td>
-<td align="center">17</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center">07</td>
 <td align="center">09</td>
 <td align="center">14</td>
-<td></td>
-<td></td>
+<td align="center"></td>
 </tr>
 <tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center">08</td>
 <td align="center"></td>
 <td align="center">18</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -539,46 +519,38 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
 <table>
 <thead>
 <tr>
+<th align="center">01</th>
+<th align="center">06</th>
+<th align="center">17</th>
 <th align="center"></th>
 <th align="center"></th>
 <th align="center"></th>
-<th align="center"></th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">01</td>
-<td align="center">06</td>
-<td align="center">17</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center">07</td>
 <td align="center">09</td>
 <td align="center">14</td>
-<td></td>
-<td></td>
+<td align="center"></td>
 </tr>
 <tr>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center">08</td>
 <td align="center"></td>
 <td align="center">18</td>
-<td></td>
 </tr>
 <tr>
+<td align="center"></td>
 <td align="center">02</td>
 <td align="center">05</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
@@ -588,24 +560,14 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th></th>
-<th></th>
+<th align="center">01</th>
+<th align="center">02</th>
+<th align="center">05</th>
+<th align="center">08</th>
+<th align="center">14</th>
+<th align="center">18</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td align="center">01</td>
-<td align="center">02</td>
-<td align="center">05</td>
-<td align="center">08</td>
-<td align="center">14</td>
-<td align="center">18</td>
-</tr>
-</tbody>
 </table>
 <h4 id="onlgn">最长公共子序列O(nlgn)算法</h4>
 <p>我们知道LIS的时间复杂度是O(nlgn)，那么如果能把LCS问题转化为LIS问题，时间LCS的复杂度就是O(nlgn)了。<br>
@@ -641,7 +603,7 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
 <p>序列1： (5 4 3 2 1) (5 4 3 2 1) (5 4 3 2 1) (5 4 3 2 1)</p>
 </blockquote>
 <p>那么求解的时间复杂度就退化为O(mnlgmn)，大于动态规划的O(mn)。<br>
-实际动态规划算法还有更多的灵活应用，因此在生物信息的序列比对领域，依然是最常用最基础的算法。</p>
+实际动态规划算法还有更多的灵活应用，因此在生物信息的序列比对领域，依然是最基础的算法。</p>
 
     </div>
   </article>
@@ -714,7 +676,8 @@ hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://juzhencs.github.io/js/application.js"></script>
 <script type="text/javascript" src="https://juzhencs.github.io/js/plugin.js"></script>
-<script type="text/javascript" src="https://juzhencs.github.io/js/MathJax/MathJax.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 <script>
       (function (window) {
           var INSIGHT_CONFIG = {
