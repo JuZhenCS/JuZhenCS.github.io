@@ -40,7 +40,7 @@
 <meta itemprop="description" content="最长公共子序列O(lgmn)算法 问题描述： 给定两个序列 序列1： C T G A C 序列2： G T A G 求两个序列的最长公共子序列 显然，T G就是一个最长公共">
 <meta itemprop="datePublished" content="2019-11-18T16:54:40&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-18T16:54:40&#43;08:00" />
-<meta itemprop="wordCount" content="2941">
+<meta itemprop="wordCount" content="2907">
 
 
 
@@ -242,7 +242,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/2019-11-18/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2941字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2907字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:6分 </span>
       </div>
     </div>
@@ -273,35 +273,27 @@
 <li>X和序列1末尾的C不等(X非C)，那么LCS_left和LCS_up里最长的那个就是LCS。</li>
 </ul>
 <p>第一种情况很好理解，就相当于有两个序列，末尾都添加了一样的字符，那么之前的LCS&rsquo;(T G)延长一位就是现在的LCS(T G C)。<br>
-第二种情况可以分开讨论。一种情况是LCS比LCS'更长，那显然是延长了一位，这一位或者是序列1末尾的C(LCS=LCS_up&gt;LCS_left)，或者是序列2末尾的X(LCS=LCS_left&gt;LCS_up)。另一种情况是LCS相比LCS'没有更长，那么LCS&rsquo;，LCS_up和LCS_left就是相等的(LCS=LCS_up=LCS_left)。可见这两种情况下，让LCS等于LCS_left和LCS_up中大的那个都没问题。</p>
+第二种情况可以分开讨论。一种情况是LCS比LCS'更长，那显然是延长了一位，这一位或者是序列1末尾的C( LCS = LCS_up &gt; LCS_left )，或者是序列2末尾的X( LC S= LCS_left &gt; LCS_up )。另一种情况是LCS相比LCS'没有更长，那么LCS&rsquo;，LCS_up和LCS_left就是相等的(LCS=LCS_up=LCS_left)。可见这两种情况下，让LCS等于LCS_left和LCS_up中大的那个都没问题。</p>
 <p>要求LCS显然需要知道LCS&rsquo;，LCS_up和LCS_left，没错，这就是典型的动态规划算法。创建一个矩阵，用来保存中间结果。</p>
 <table>
 <thead>
 <tr>
 <th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th></th>
-<th></th>
+<th align="center">C</th>
+<th align="center">T</th>
+<th align="center"><strong>G</strong></th>
+<th align="center">A</th>
+<th align="center">C</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td align="center">C</td>
-<td align="center">T</td>
-<td align="center"><strong>G</strong></td>
-<td align="center">A</td>
-<td align="center">C</td>
-<td></td>
-</tr>
 <tr>
 <td align="center"><strong>G</strong></td>
 <td align="center">0</td>
 <td align="center">0</td>
 <td align="center"><strong>1</strong></td>
-<td></td>
-<td></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
@@ -312,29 +304,21 @@
 <thead>
 <tr>
 <th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th></th>
-<th></th>
+<th align="center">C</th>
+<th align="center">T</th>
+<th align="center">G</th>
+<th align="center"><strong>A</strong></th>
+<th align="center">C</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td align="center">C</td>
-<td align="center">T</td>
-<td align="center">G</td>
-<td align="center"><strong>A</strong></td>
-<td align="center">C</td>
-<td></td>
-</tr>
 <tr>
 <td align="center"><strong>G</strong></td>
 <td align="center">0</td>
 <td align="center">0</td>
 <td align="center">1</td>
 <td align="center"><strong>1</strong></td>
-<td></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
@@ -348,22 +332,14 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
 <thead>
 <tr>
 <th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th></th>
-<th></th>
+<th align="center">C</th>
+<th align="center">T</th>
+<th align="center">G</th>
+<th align="center">A</th>
+<th align="center">C</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td align="center">C</td>
-<td align="center">T</td>
-<td align="center">G</td>
-<td align="center">A</td>
-<td align="center">C</td>
-<td></td>
-</tr>
 <tr>
 <td align="center">G</td>
 <td align="center">0</td>
@@ -712,11 +688,16 @@ $$D(i, j) = Max(D(i-1, j), D(i, j-1)) \quad if X(i) != Y(j)$$</p>
     <li><a href="https://juzhencs.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
             <i class="icon icon-rss"></i></a></li>
 </ul>
-
+  <div class="copyright">
+    &copy;2018  -
+    2019
     <div class="publishby">
         Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
     </div>
+  </div>
 </footer>
+
+<script type="text/javascript" src="https://juzhencs.github.io/js/mathjax.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 <script>
    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
@@ -735,6 +716,7 @@ hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://juzhencs.github.io/js/application.js"></script>
 <script type="text/javascript" src="https://juzhencs.github.io/js/plugin.js"></script>
+<script type="text/javascript" src="https://juzhencs.github.io/js/mathjax.js"></script>
 <script>
       (function (window) {
           var INSIGHT_CONFIG = {
@@ -765,5 +747,6 @@ hljs.initHighlightingOnLoad();
         (d.head || d.body).appendChild(s);
     })();
 </script>
+
   </body>
 </html>
