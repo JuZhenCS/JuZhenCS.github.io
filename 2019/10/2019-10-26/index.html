@@ -40,7 +40,7 @@
 <meta itemprop="description" content="vEB tree算法简介 vEB tree是VAN EMDE BOAS Tress的缩写，是一种 时间复杂度为O(lglgU) 的查找算法。基于比较操作的查找算法最佳时间复杂度">
 <meta itemprop="datePublished" content="2019-10-26T16:11:12&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-26T16:11:12&#43;08:00" />
-<meta itemprop="wordCount" content="1563">
+<meta itemprop="wordCount" content="1564">
 
 
 
@@ -57,7 +57,45 @@
       <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <![endif]-->
 
+  <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
 </head>
+
   </head>
   <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
     <div class="slimContent">
@@ -233,7 +271,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/2019-10-26/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1563字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1564字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
       </div>
     </div>
@@ -253,15 +291,14 @@
 <li>如果二分点大于a，则去掉序列后半段，否则去点序列前半段，返回1步。</li>
 </ol>
 </blockquote>
-<p>以上就是典型的二分查找，每次都把序列对半分，直到序列长度为1，最坏的情况下可能操作x次。即:<br>
-$$n(\frac{1}{2})^x=1$$<br>
-显然:<br>
-$$x=log_2^n$$<br>
-接下来思考一个问题， <strong>如果每次不是二分，而是多分</strong> 是不是可以算的更快呢？</p>
+<p>以上就是典型的二分查找，每次都把序列对半分，直到序列长度为1，最坏的情况下可能操作x次。即:</p>
+<p>$$n(\frac{1}{2})^x=1$$</p>
+<p>显然:</p>
+<p>$$x=log_2^n$$</p>
+<p>接下来思考一个问题， <strong>如果每次不是二分，而是多分</strong> 是不是可以算的更快呢？</p>
 <h4 id="veb-tree-1">vEB tree算法</h4>
-<p>数据存储在计算机当中是二进制的，计算机对数据的运算最终都是执行一些位操作。如果考虑位操作的话，其实每次是可以将数据$\sqrt n$分的。考虑数字16，可以分解为4x4，4是$2^2$二进制是0B 100，16是$2^4$二进制表示是0B 10000，刚好是0B 100乘方的结果。<br>
+<p>数据存储在计算机当中是二进制的，计算机对数据的运算最终都是执行一些位操作。如果考虑位操作的话，其实每次是可以将数据$\sqrt n$分的。考虑数字16，可以分解为4x4，4是 $2^2$二进制是0B 100，16是$2^4$二进制表示l是0B 10000，刚好是0B 100乘方的结果。<br>
 假设有为0-15，共16个数，那么把这16个数全部用二进制表示如下：</p>
-<blockquote>
 <table>
 <thead>
 <tr>
@@ -324,7 +361,6 @@ $$x=log_2^n$$<br>
 </tr>
 </tbody>
 </table>
-</blockquote>
 <p>可以看到如果把二进制表示的数前后各两个比特位拆开，前两个比特位相同的数字合为一段，可以把大小为16的空间拆分成$\sqrt16$即4段。后两个比特位则可以表示数字在段当中的位置。比如数字9，拆分后，属于0B 10段，在段中的0B 01位。<br>
 另外再说明一下问题空间U和问题规模n，如上述例子，所有的数都在0-15范围内，问题空间U就是16。假设查找其中的2、4、11，三个数，问题规模n就是3。<br>
 现在vEB tree的核心思想就可以理解了，将要查找的数据按照二进制对半分(高位补零)，前半部分为段值，后半部分为段内的位置。再段内位置作为问题空间递归的查找下去，直到找到或者问题空间大小为2为止。<br>
@@ -421,8 +457,6 @@ hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://juzhencs.github.io/js/application.js"></script>
 <script type="text/javascript" src="https://juzhencs.github.io/js/plugin.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 <script>
       (function (window) {
           var INSIGHT_CONFIG = {
